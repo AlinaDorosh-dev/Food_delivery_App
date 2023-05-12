@@ -8,17 +8,20 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [bgColor, setBgColor] = useState<string>("transparent");
   const [textColor, setTextColor] = useState<string>("text-slate-800");
+  const [visible, setVisible] = useState<boolean>(true);
 
   const toggleNavMenu = () => setIsOpen(!isOpen);
 
   useEffect(() => {
     const changeColorOnScroll = () => {
       if (window.scrollY >= 90) {
-        setBgColor("bg-stone-200");
-        setTextColor("text-orange-400");
+        setBgColor("bg-orange-500");
+        setTextColor("text-stone-200");
+        setVisible(false);
       } else {
         setBgColor("transparent");
         setTextColor("text-slate-800");
+        setVisible(true);
       }
     };
     window.addEventListener("scroll", changeColorOnScroll);
@@ -33,7 +36,7 @@ export default function Navbar() {
       >
         <Link href='/'>
           <h1 className='font-bold text-2xl md:text-3xl'>
-            <GiChefToque className='m-auto' /> FOODIE
+            <GiChefToque className={visible ? "m-auto" : "hidden"} /> FOODIE
           </h1>
         </Link>
         <ul className='hidden sm:flex'>
@@ -67,7 +70,6 @@ export default function Navbar() {
               : "sm:hidden absolute top-0 left-[-100%] right-0 bottom-0 flex justify-center items-center w-full h-screen bg-stone-200 text-center text-slate-800 ease-in duration-300 "
           }
         >
-         
           <ul>
             <li className='p-4 text-2xl hover:text-orange-500'>
               <Link href='/'>Home</Link>
