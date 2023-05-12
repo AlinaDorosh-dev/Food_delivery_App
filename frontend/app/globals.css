@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+ }
+
+ button {
+  cursor: pointer;
+ }
+
+.custom-img{
+    background-image: url("../public/images/main-banner.jpg");
+}
