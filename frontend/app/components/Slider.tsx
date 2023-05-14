@@ -10,7 +10,6 @@ import slider8 from "../../public/images/slider_img/slider8.jpg";
 
 import Image from "next/image";
 
-
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
@@ -19,8 +18,6 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 import { EffectCoverflow, Pagination, Navigation } from "swiper";
-
-import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 
 const SliderImages = [
   slider1,
@@ -35,13 +32,17 @@ const SliderImages = [
 
 export default function Slider() {
   return (
-    <div>
-      <h1
-      className="text-base text-center text-slate-700 my-8"
-      >- Popular Delivery -</h1>
-      <h2
-      className="text-xl text-center font-bold text-orange-400 my-8"
-      >Trending food</h2>
+    <div className='flex items-center justify-center h-screen bg-fixed bg-center bg-cover custom-img-two'>
+      <a
+        href='https://www.freepik.com/free-vector/abstract-cover-with-smooth-lines_1435131.htm#page=3&query=orange%20background&position=4&from_view=search&track=ais'
+        className='hidden'
+      >
+        Image by kotkoaon Freepik
+      </a>
+
+      <h2 className='text-2xl text-center font-bold text-orange-400  mx-14 w-96'>
+        Trending food
+      </h2>
       <Swiper
         effect={"coverflow"}
         grabCursor={true}
@@ -60,23 +61,24 @@ export default function Slider() {
           prevEl: ".swiper-button-prev",
         }}
         modules={[EffectCoverflow, Pagination, Navigation]}
-        className='max-w-[40%] mx-auto my-8 rounded-lg'
-        
+        className='max-w-[50%] mx-auto my-6 rounded-lg'
       >
         {SliderImages.map((slide, index) => {
           return (
-            <SwiperSlide key={index} className="rounded-lg max-w-[45%]" >
-              <Image src={slide} alt='food' width={300} height={400} className="rounded-lg"/>
+            <SwiperSlide key={index} className='rounded-lg max-w-[45%]'>
+              <Image
+                src={slide}
+                alt='food'
+                width={360}
+                height={430}
+                className='rounded-lg'
+              />
             </SwiperSlide>
-          )
+          );
         })}
         <div className='slider-controler'>
-          <div className='swiper-button-prev text-orange-400'>
-            
-          </div>
-          <div className='swiper-button-next '>
-            
-          </div>
+          <div className='swiper-button-prev text-orange-400'></div>
+          <div className='swiper-button-next '></div>
           <div className='swiper-pagination'></div>
         </div>
       </Swiper>

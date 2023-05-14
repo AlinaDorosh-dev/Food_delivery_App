@@ -1,20 +1,23 @@
 import Link from "next/link";
+
 export default function LandingPage() {
   return (
     <>
-      <div className='flex items-center justify-center h-screen mb-12 bg-fixed bg-center bg-cover custom-img'>
-        {/* overlay */}
-        <div className='absolute inset-0 z-[2] w-full h-full bg-black opacity-20' />
+      <div className='flex items-center justify-center h-screen bg-fixed bg-center bg-cover custom-img'>
+        
 
         <div className='sm:ml-[20rem] md:ml-[30rem] lg:ml-[40rem] text-center'>
           <h1 className='text-orange-400 text-5xl font-black '>
             Good food.
             <br />
+
             Good mood.
           </h1>
-          <div className='mt-8 px-8 py-2 z-20 border-orange-200 border-double border-4 font-bold shadow-xl text-slate-600 w-45'>
-            <Link href='/order'>ORDER NOW</Link>
-          </div>
+          <Link href='/order'>
+          <button className='mt-8 px-8 py-2 z-100 border-orange-300 border-double border-4 font-bold shadow-xl text-slate-600 w-50'>
+            ORDER NOW
+          </button>
+          </Link>
         </div>
 
         <a

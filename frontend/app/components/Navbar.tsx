@@ -15,7 +15,7 @@ export default function Navbar() {
   useEffect(() => {
     const changeColorOnScroll = () => {
       if (window.scrollY >= 90) {
-        setBgColor("bg-orange-500");
+        setBgColor("bg-orange-400");
         setTextColor("text-stone-200");
         setVisible(false);
       } else {
@@ -32,24 +32,24 @@ export default function Navbar() {
       className={`fixed left-0 top-0 w-full z-10 ease-in duration-400 ${bgColor}`}
     >
       <nav
-        className={`m-auto flex justify-between items-center py-2 px-6 ${textColor}`}
+        className={`m-auto flex justify-between items-center py-1 px-6 ${textColor}`}
       >
         <Link href='/'>
-          <h1 className='font-bold text-2xl md:text-3xl'>
+          <h1 className='font-bold text-xl md:text-2xl ml-14'>
             <GiChefToque className={visible ? "m-auto" : "hidden"} /> FOODIE
           </h1>
         </Link>
         <ul className='hidden sm:flex'>
-          <li className='p-5 text-base hover:underline decoration-orange-500'>
+          <li className='px-5 text-base hover:underline decoration-orange-500'>
             <Link href='/'>Home</Link>
           </li>
-          <li className='p-5 text-base hover:underline decoration-orange-500'>
+          <li className='px-5 text-base hover:underline decoration-orange-500'>
             <Link href='/about'>About</Link>
           </li>
-          <li className='p-5 text-base hover:underline decoration-orange-500'>
+          <li className='px-5 text-base hover:underline decoration-orange-500'>
             <Link href='/contact'>Contact</Link>
           </li>
-          <li className='p-5 text-base hover:underline decoration-orange-500'>
+          <li className='px-5 text-base hover:underline decoration-orange-500'>
             <Link href='/order'>New Order</Link>
           </li>
         </ul>

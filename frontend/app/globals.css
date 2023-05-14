@@ -14,12 +14,16 @@ html {
     background-image: url("../public/images/main-banner.jpg");
 }
 
+.custom-img-two{
+  background-image: url("../public/images/679.jpg");
+}
+
 ::-webkit-scrollbar {
-  width: 1.3rem;
+  width: .7rem;
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 1rem;
+  border-radius: .5rem;
   background: #797979;
   transition: all 0.5s ease-in-out;
 }
