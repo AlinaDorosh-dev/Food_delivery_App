@@ -2,6 +2,7 @@ import "./globals.css";
 import { Raleway } from "next/font/google";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ApolloWrapper from "@/lib/apollo-wrapper";
 
 const raleway = Raleway({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -21,12 +22,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en'>
-      <body className={raleway.className}>
-        <Navbar/>
-        {children}
-        <Footer/>
+    <ApolloWrapper>
+      <html lang='en'>
+        <body className={raleway.className}>
+          <Navbar />
+          {children}
+          <Footer />
         </body>
-    </html>
+      </html>
+    </ApolloWrapper>
   );
 }
