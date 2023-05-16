@@ -1,5 +1,6 @@
 "use client";
 import { gql, useQuery } from "@apollo/client";
+import MenuItem from "./MenuItem";
 
 const GET_MENU = gql`
   query getMenuItems {
@@ -20,10 +21,17 @@ const GET_MENU = gql`
 `;
 
 export default function Menu() {
-  const { loading, error, data } = useQuery(GET_MENU);
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>`Error! ${error.message}`;</p>;
-  console.log(data);
+  const { data } = useQuery(GET_MENU);
 
-  return <div>Menu component</div>;
+ 
+
+  return (
+    <div className="flex flex-row justify-evenly flex-wrap p-4 mt-6 md:mt-10 lg:mt-14">
+      {data?.getMenuItems?.menuItems.map((item: any) => {
+        return (
+          <MenuItem key={item.id} item={item} />
+        );
+      })}
+    </div>
+  );
 }

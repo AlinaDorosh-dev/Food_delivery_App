@@ -1,7 +1,6 @@
 import "./globals.css";
 import { Raleway } from "next/font/google";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import { Navbar, Footer } from "./components/index";
 import ApolloWrapper from "@/lib/apollo-wrapper";
 
 const raleway = Raleway({

@@ -18,12 +18,16 @@ html {
   background-image: url("../public/images/679.jpg");
 }
 
+.custom-img-three{
+  background-image: url("../public/images/wooden-natural-floor-decoration-concept.jpg");
+}
+
 ::-webkit-scrollbar {
-  width: .7rem;
+  width: .6rem;
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: .5rem;
+  border-radius: .4rem;
   background: #797979;
   transition: all 0.5s ease-in-out;
 }

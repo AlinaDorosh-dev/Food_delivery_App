@@ -1,13 +1,14 @@
 "use client";
 import Link from "next/link";
-import { GiChefToque } from "react-icons/gi";
+
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import { FaUserCircle } from "react-icons/fa";
 import { useState, useEffect } from "react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [bgColor, setBgColor] = useState<string>("transparent");
-  const [textColor, setTextColor] = useState<string>("text-slate-800");
+  const [textColor, setTextColor] = useState<string>("text-slate-700");
   const [visible, setVisible] = useState<boolean>(true);
 
   const toggleNavMenu = () => setIsOpen(!isOpen);
@@ -20,7 +21,7 @@ export default function Navbar() {
         setVisible(false);
       } else {
         setBgColor("transparent");
-        setTextColor("text-slate-800");
+        setTextColor("text-slate-700");
         setVisible(true);
       }
     };
@@ -32,12 +33,10 @@ export default function Navbar() {
       className={`fixed left-0 top-0 w-full z-10 ease-in duration-400 ${bgColor}`}
     >
       <nav
-        className={`m-auto flex justify-between items-center py-1 px-6 ${textColor}`}
+        className={`m-auto flex justify-between items-center py-3 px-6 ${textColor}`}
       >
         <Link href='/'>
-          <h1 className='font-bold text-xl md:text-2xl ml-14'>
-            <GiChefToque className={visible ? "m-auto" : "hidden"} /> FOODIE
-          </h1>
+          <h1 className='font-bold text-xl md:text-2xl ml-8'>FOODAPP</h1>
         </Link>
         <ul className='hidden sm:flex'>
           <li className='px-5 text-base hover:underline decoration-orange-500'>
@@ -50,7 +49,12 @@ export default function Navbar() {
             <Link href='/contact'>Contact</Link>
           </li>
           <li className='px-5 text-base hover:underline decoration-orange-500'>
-            <Link href='/order'>New Order</Link>
+            <Link href='/menu'>Menu</Link>
+          </li>
+          <li className='px-5 text-base hover:underline decoration-orange-500'>
+            <Link href='/login'>
+              <FaUserCircle size={20} />
+            </Link>
           </li>
         </ul>
 
@@ -81,7 +85,7 @@ export default function Navbar() {
               <Link href='/contact'>Contact</Link>
             </li>
             <li className='p-4 text-2xl hover:text-orange-500'>
-              <Link href='/order'>New Order</Link>
+              <Link href='/menu'>Menu</Link>
             </li>
           </ul>
         </div>

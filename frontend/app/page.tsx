@@ -1,11 +1,5 @@
-import LandingPage from './components/LandingPage'
-import Slider from './components/Slider'
+import LandingPage from "./components/LandingPage";
 
 export default function Home() {
-  return (
-    <>
-    <LandingPage/>
-    <Slider/>
-    </>
-  )
+  return <LandingPage />;
 }
