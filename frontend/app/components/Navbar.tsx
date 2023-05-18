@@ -2,14 +2,17 @@
 import Link from "next/link";
 
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-import { FaUserCircle } from "react-icons/fa";
-import { useState, useEffect } from "react";
+import { FaUserCircle, FaShoppingCart } from "react-icons/fa";
+import { useState, useEffect, useContext } from "react";
+import { MenuContext } from "../context/MenuContext";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [bgColor, setBgColor] = useState<string>("transparent");
   const [textColor, setTextColor] = useState<string>("text-slate-700");
   const [visible, setVisible] = useState<boolean>(true);
+
+  const { cartItems } = useContext(MenuContext);
 
   const toggleNavMenu = () => setIsOpen(!isOpen);
 
@@ -36,7 +39,9 @@ export default function Navbar() {
         className={`m-auto flex justify-between items-center py-3 px-6 ${textColor}`}
       >
         <Link href='/'>
-          <h1 className='font-bold text-xl md:text-2xl ml-8'>FOODAPP</h1>
+          <h1 className='font-bold text-xl md:text-2xl ml-2 md:ml-8'>
+            FOODAPP
+          </h1>
         </Link>
         <ul className='hidden sm:flex'>
           <li className='px-5 text-base hover:underline decoration-orange-500'>
@@ -51,20 +56,50 @@ export default function Navbar() {
           <li className='px-5 text-base hover:underline decoration-orange-500'>
             <Link href='/menu'>Menu</Link>
           </li>
+          <li className='px-5 '>
+            <Link href='/cart'>
+              <div className='hover:text-orange-500 relative inline-flex items-center'>
+                <FaShoppingCart size={30} />
+                {cartItems.length > 0 ? (
+                  <>
+                    <span className='sr-only'>Notifications</span>
+                    <div className='absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-orange-500 border-2 border-white rounded-full -top-2 -right-2'>
+                      {cartItems.length}
+                    </div>
+                  </>
+                ) : null}
+              </div>
+            </Link>
+          </li>
           <li className='px-5 text-base hover:underline decoration-orange-500'>
             <Link href='/login'>
-              <FaUserCircle size={20} />
+              <FaUserCircle size={30} />
             </Link>
           </li>
         </ul>
 
         {/* Burger button */}
-        <div className='block sm:hidden z-10'>
-          {isOpen ? (
-            <AiOutlineClose size={20} onClick={toggleNavMenu} />
-          ) : (
-            <AiOutlineMenu size={20} onClick={toggleNavMenu} />
-          )}
+        <div className='flex justify-end sm:hidden'>
+          <div className='mx-6 relative inline-flex items-center sm:hidden '>
+            <Link href='/cart'>
+              <FaShoppingCart size={20} />
+              {cartItems.length > 0 ? (
+                <>
+                  <span className='sr-only'>Notifications</span>
+                  <div className='absolute inline-flex items-center justify-center w-4 h-4 text-xs font-bold text-white bg-orange-500 border-2 border-white rounded-full -top-2 -right-2'>
+                    {cartItems.length}
+                  </div>
+                </>
+              ) : null}
+            </Link>
+          </div>
+          <div className='block sm:hidden z-10'>
+            {isOpen ? (
+              <AiOutlineClose size={20} onClick={toggleNavMenu} />
+            ) : (
+              <AiOutlineMenu size={20} onClick={toggleNavMenu} />
+            )}
+          </div>
         </div>
         {/* Mobile menu */}
         <div

@@ -40,9 +40,7 @@ export default function Slider() {
         Image by kotkoaon Freepik
       </a>
 
-      <h2 className='text-2xl text-center font-bold text-orange-400  mx-14 w-96'>
-        Trending food
-      </h2>
+     
       <Swiper
         effect={"coverflow"}
         grabCursor={true}
@@ -61,7 +59,7 @@ export default function Slider() {
           prevEl: ".swiper-button-prev",
         }}
         modules={[EffectCoverflow, Pagination, Navigation]}
-        className='max-w-[50%] mx-auto my-6 rounded-lg'
+        className='md:max-w-[50%] mx-auto my-6 rounded-lg'
       >
         {SliderImages.map((slide, index) => {
           return (
@@ -82,6 +80,9 @@ export default function Slider() {
           <div className='swiper-pagination'></div>
         </div>
       </Swiper>
+      <h2 className='text-2xl font-bold text-orange-400 text-left '>
+        Trending food
+      </h2>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Menu from "./components/Menu";
 
+
 export const metadata: Metadata = {
   title: "Menu",
   description: "Menu page",

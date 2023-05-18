@@ -22,6 +22,10 @@ html {
   background-image: url("../public/images/wooden-natural-floor-decoration-concept.jpg");
 }
 
+.custom-img-four{
+  background-image: url("../public/images/ketogenic-low-carbs-diet-food-selection-white-wall.jpg");
+}
+
 ::-webkit-scrollbar {
   width: .6rem;
 }
