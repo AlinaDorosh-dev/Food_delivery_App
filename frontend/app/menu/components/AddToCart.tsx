@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { MenuContext } from "../../context/MenuContext";
+import { MenuContext } from "../../../context/MenuContext";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 
 type Props = {

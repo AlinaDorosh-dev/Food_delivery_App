@@ -1,6 +1,6 @@
 "use client";
 import { useContext } from "react";
-import { MenuContext } from "../../context/MenuContext";
+import { MenuContext } from "../../../context/MenuContext";
 import Link from "next/link";
 
 export default function Total() {

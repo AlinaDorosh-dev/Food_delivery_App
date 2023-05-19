@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { FaUserCircle, FaShoppingCart } from "react-icons/fa";
 import { useState, useEffect, useContext } from "react";
-import { MenuContext } from "../context/MenuContext";
+import { MenuContext } from "../../context/MenuContext";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);

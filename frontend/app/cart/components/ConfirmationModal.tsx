@@ -4,7 +4,7 @@ import {
   AiOutlineCheckCircle,
 } from "react-icons/ai";
 import { useContext, useState } from "react";
-import { MenuContext } from "../../context/MenuContext";
+import { MenuContext } from "../../../context/MenuContext";
 
 type Props = {
   item: OrderItem;

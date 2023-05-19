@@ -1,6 +1,6 @@
 "use client";
 import { useContext } from "react";
-import { MenuContext } from "../../context/MenuContext";
+import { MenuContext } from "../../../context/MenuContext";
 import CartItem from "./CartItem";
 import Total from "./Total";
 

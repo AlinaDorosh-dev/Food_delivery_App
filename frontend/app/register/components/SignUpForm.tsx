@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-import FormSection from "../../UI/FormSection";
+import FormSection from "../../../UI/FormSection";
 
 export default function SignUpForm() {
   //form validation

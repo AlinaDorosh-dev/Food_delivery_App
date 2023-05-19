@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const addressSchema = new Schema({
+const addressSchema = new mongoose.Schema({
     street: {
     type: String,
         },
@@ -38,7 +38,7 @@ const customerSchema = new mongoose.Schema({
 
   email: { type: String, required: true, trim: true, unique: true },
 
-  pwdHash: {
+  password: {
     type: String,
     required: true,
     trim: true,
@@ -58,11 +58,11 @@ const customerSchema = new mongoose.Schema({
 
   createdAt: { type: Date, default: Date.now() },
 
-  address: addressSchema,
+  address: addressSchema, 
 
   birthDate: {
     type: Date,
-    required: true,
+    
   },
 });
 

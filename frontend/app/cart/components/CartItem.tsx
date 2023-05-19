@@ -1,6 +1,6 @@
 "use client";
 import { useContext, useState, useEffect } from "react";
-import { MenuContext } from "../../context/MenuContext";
+import { MenuContext } from "../../../context/MenuContext";
 import { IoTrashBin } from "react-icons/io5";
 import ConfirmationModal from "./ConfirmationModal";
 

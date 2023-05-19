@@ -2,7 +2,7 @@ import "./globals.css";
 import { Raleway } from "next/font/google";
 import { Navbar, Footer } from "./components/index";
 import ApolloWrapper from "@/lib/apollo-wrapper";
-import MenuContextProvider from "./context/MenuContext";
+import MenuContextProvider from "../context/MenuContext";
 
 const raleway = Raleway({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
