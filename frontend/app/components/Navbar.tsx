@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { FaUserCircle, FaShoppingCart } from "react-icons/fa";
@@ -14,7 +15,7 @@ export default function Navbar() {
 
   const { cartItems } = useContext(MenuContext);
 
-  const toggleNavMenu = () => setIsOpen(!isOpen);
+  const pathname = usePathname();
 
   useEffect(() => {
     const changeColorOnScroll = () => {
@@ -31,6 +32,15 @@ export default function Navbar() {
     window.addEventListener("scroll", changeColorOnScroll);
   }, []);
 
+  const toggleNavMenu = () => setIsOpen(!isOpen);
+
+  const navItems = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Contact", path: "/contact" },
+    { name: "Menu", path: "/menu" },
+  ];
+
   return (
     <header
       className={`fixed left-0 top-0 w-full z-10 ease-in duration-400 ${bgColor}`}
@@ -44,26 +54,27 @@ export default function Navbar() {
           </h1>
         </Link>
         <ul className='hidden sm:flex'>
-          <li className='px-5 text-base hover:underline decoration-orange-500'>
-            <Link href='/'>Home</Link>
-          </li>
-          <li className='px-5 text-base hover:underline decoration-orange-500'>
-            <Link href='/about'>About</Link>
-          </li>
-          <li className='px-5 text-base hover:underline decoration-orange-500'>
-            <Link href='/contact'>Contact</Link>
-          </li>
-          <li className='px-5 text-base hover:underline decoration-orange-500'>
-            <Link href='/menu'>Menu</Link>
-          </li>
+          {navItems.map((item) => (
+            <li
+              key={item.name}
+              className={
+                pathname === item.path
+                  ? "px-5 text-sm underline decoration-slate-600"
+                  : "px-5 text-sm hover:underline decoration-orange-500"
+              }
+            >
+              <Link href={item.path}>{item.name}</Link>
+            </li>
+          ))}
+
           <li className='px-5 '>
             <Link href='/cart'>
               <div className='hover:text-orange-500 relative inline-flex items-center'>
-                <FaShoppingCart size={30} />
+                <FaShoppingCart size={25} />
                 {cartItems.length > 0 ? (
                   <>
                     <span className='sr-only'>Notifications</span>
-                    <div className='absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-orange-500 border-2 border-white rounded-full -top-2 -right-2'>
+                    <div className='absolute inline-flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-orange-500 border-2 border-white rounded-full -top-2 -right-2'>
                       {cartItems.length}
                     </div>
                   </>
@@ -73,7 +84,7 @@ export default function Navbar() {
           </li>
           <li className='px-5 text-base hover:underline decoration-orange-500'>
             <Link href='/login'>
-              <FaUserCircle size={30} />
+              <FaUserCircle size={25} />
             </Link>
           </li>
         </ul>
@@ -110,17 +121,26 @@ export default function Navbar() {
           }
         >
           <ul>
-            <li className='p-4 text-2xl hover:text-orange-500'>
-              <Link href='/'>Home</Link>
-            </li>
-            <li className='p-4 text-2xl hover:text-orange-500'>
-              <Link href='/about'>About</Link>
-            </li>
-            <li className='p-4 text-2xl hover:text-orange-500'>
-              <Link href='/contact'>Contact</Link>
-            </li>
-            <li className='p-4 text-2xl hover:text-orange-500'>
-              <Link href='/menu'>Menu</Link>
+            {navItems.map((item) => (
+              <li
+                key={item.name}
+                className={
+                  pathname === item.path
+                    ? "p-4 text-2xl underline decoration-slate-600"
+                    : "p-4 text-2xl "
+                }
+              >
+                <Link href={item.path}>{item.name}</Link>
+              </li>
+            ))}
+            <li
+              className={
+                pathname === "/login"
+                  ? "p-4 text-2xl underline decoration-slate-600"
+                  : "p-4 text-2xl"
+              }
+            >
+              <Link href='/login'>Login</Link>
             </li>
           </ul>
         </div>

@@ -1,6 +1,7 @@
 "use client";
 import { useContext } from "react";
 import { MenuContext } from "../../context/MenuContext";
+import Link from "next/link";
 
 export default function Total() {
   const { cartItems } = useContext(MenuContext);
@@ -16,9 +17,12 @@ export default function Total() {
         <p>Delivery: {delivery}€</p>
         <p>Total to pay: {total + delivery}€</p>
       </div>
+      <Link href='/login'>
+      {/* <Link href='/checkout'> */}
       <button className='text-white font-semibold text-sm bg-orange-500 hover:bg-orange-600 focus:ring-2 focus:outline-none focus:ring-orange-300 rounded-lg  px-4 py-2 text-center mt-4 sm:mt-0'>
         CONTINUE
       </button>
+      </Link>
     </div>
   );
 }

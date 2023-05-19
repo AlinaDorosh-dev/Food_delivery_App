@@ -21,7 +21,7 @@ const GET_MENU = gql`
 `;
 
 export default function Menu() {
-  const { data } = useQuery(GET_MENU);
+  const { loading, error, data } = useQuery(GET_MENU);
 
  
 
