@@ -1,42 +1,103 @@
+"use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import { useMutation } from "@apollo/client";
+import { useState, useEffect } from "react";
+import useAuth from "@/hooks/useAuth";
+import useCart from "@/hooks/useCart";
+import { AUTH_USER } from "@/graphql/mutations";
+import FormSection from "../../UI/FormSection";
 
 export default function LoginForm() {
+  const [authUser, { error }] = useMutation(AUTH_USER);
+
+  const router = useRouter();
+
+  const { setToken } = useAuth();
+  const { cartItems } = useCart();
+
+  //state to message text
+  const [message, setMessage] = useState<string>("");
+  useEffect(() => {
+    if (error) {
+      error.message === "Access denied"
+        ? setMessage("Wrong email or password")
+        : setMessage(error.message);
+    }
+  }, [error]);
+
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    validationSchema: Yup.object({
+      email: Yup.string()
+        .email("Please provide a valid email address")
+        .required("Email is required"),
+      password: Yup.string().required("Password is required"),
+    }),
+    onSubmit: async (values) => {
+      const { email, password } = values;
+      try {
+        const { data } = await authUser({
+          variables: {
+            input: {
+              email,
+              password,
+            },
+          },
+        });
+        const { token } = data.authUser;
+        setToken(token);
+        if (cartItems.length > 0) {
+          router.push("/order");
+        } else {
+          router.push("/menu");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  });
+
+  //clear message when formik values change
+  useEffect(() => {
+    setMessage("");
+  }, [formik.values]);
+
+  const showMessage = () => {
+    return (
+      <div
+        className='bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 mb-2'
+        role='alert'
+      >
+        <p>{message}</p>
+      </div>
+    );
+  };
   return (
     <div className='flex flex-col items-center justify-center mt-5'>
       <div className='w-[90%] max-w-sm'>
-        <form className='bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4'>
-          <div className='mb-4'>
-            <label
-              className='block text-slate-600 text-sm font-bold mb-2'
-              htmlFor='email'
-            >
-              Email
-            </label>
-            <input
-              className='shadow appearance-none border rounded w-full py-2 px-3 text-slate-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-1 focus:ring-sky-300 focus:ring-offset-2 focus:ring-offset-slate-50 invalid:border-pink-500 invalid:text-pink-600
-              focus:invalid:border-pink-300 focus:invalid:ring-pink-300 peer'
-              id='email'
-              type='email'
-              placeholder='Email'
-            />
-            <p className='mt-2 hidden peer-invalid:visible text-pink-300 text-sm'>
-              Please provide a valid email address.
-            </p>
-          </div>
-          <div className='mb-6'>
-            <label
-              className='block text-slate-600 text-sm font-bold mb-2'
-              htmlFor='password'
-            >
-              Password
-            </label>
-            <input
-              className='shadow appearance-none border rounded w-full py-2 px-3 text-slate-700 mb-3 leading-tight focus:outline-none focus:shadow-outline focus:ring-1 focus:ring-sky-300 focus:ring-offset-2 focus:ring-offset-slate-50'
-              id='password'
-              type='password'
-              placeholder='********'
-            />
-          </div>
+        <form
+          onSubmit={formik.handleSubmit}
+          className='bg-white shadow-md rounded p-8 mb-4'
+        >
+          {message ? showMessage() : null}
+          <FormSection
+            label='email'
+            type='email'
+            placeholder='john.smith@gmail.com'
+            formik={formik}
+          />
+          <FormSection
+            label='password'
+            type='password'
+            placeholder='********'
+            formik={formik}
+          />
           <div className='flex items-center justify-between'>
             <input
               type='submit'
@@ -49,10 +110,10 @@ export default function LoginForm() {
               Don´t have an account yet?
             </p>
             <Link href='/register'>
-                <p className='text-slate-600 hover:text-sky-800 text-sm font-semibold hover:underline decoration-orange-500'>
-                Sign Up 
-                </p>
-                </Link>
+              <p className='text-slate-600 hover:text-sky-800 text-sm font-semibold hover:underline decoration-orange-500'>
+                Sign Up
+              </p>
+            </Link>
           </div>
         </form>
       </div>

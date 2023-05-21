@@ -3,15 +3,15 @@ import {
   AiOutlineExclamationCircle,
   AiOutlineCheckCircle,
 } from "react-icons/ai";
-import { useContext, useState } from "react";
-import { MenuContext } from "../../../context/MenuContext";
+import {  useState } from "react";
+import useCart from "@/hooks/useCart";
 
 type Props = {
   item: OrderItem;
   setOpenConfirm: React.Dispatch<React.SetStateAction<boolean>>;
 };
 export default function ConfirmationModal({ item, setOpenConfirm }: Props) {
-  const { setCartItems } = useContext(MenuContext);
+  const { setCartItems } = useCart()
   const [removed, setRemoved] = useState<boolean>(false);
 
   const handleRemoveFromCart = () => {

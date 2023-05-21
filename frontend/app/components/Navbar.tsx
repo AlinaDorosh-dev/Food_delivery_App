@@ -4,8 +4,8 @@ import { usePathname } from "next/navigation";
 
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { FaUserCircle, FaShoppingCart } from "react-icons/fa";
-import { useState, useEffect, useContext } from "react";
-import { MenuContext } from "../../context/MenuContext";
+import { useState, useEffect } from "react";
+import useCart from "@/hooks/useCart";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -13,7 +13,7 @@ export default function Navbar() {
   const [textColor, setTextColor] = useState<string>("text-slate-700");
   const [visible, setVisible] = useState<boolean>(true);
 
-  const { cartItems } = useContext(MenuContext);
+  const { cartItems } = useCart();
 
   const pathname = usePathname();
 

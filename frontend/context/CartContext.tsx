@@ -1,12 +1,12 @@
 "use client";
 import { createContext, useState, useEffect } from "react";
 
-export const MenuContext = createContext<MenuContext>({
+export const CartContext = createContext<CartContext>({
   cartItems: [],
   setCartItems: () => {},
 });
 
-export default function MenuContextProvider({ children }: ChildrenProps) {
+export default function CartContextProvider({ children }: ChildrenProps) {
   const [cartItems, setCartItems] = useState<OrderItem[]>([]);
   
   useEffect(() => {
@@ -20,8 +20,8 @@ export default function MenuContextProvider({ children }: ChildrenProps) {
     localStorage.setItem("cart", JSON.stringify(cartItems));
   }, [cartItems]);
   return (
-    <MenuContext.Provider value={{ cartItems, setCartItems }}>
+    <CartContext.Provider value={{ cartItems, setCartItems }}>
       {children}
-    </MenuContext.Provider>
+    </CartContext.Provider>
   );
 }

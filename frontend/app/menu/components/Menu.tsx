@@ -4,7 +4,7 @@ import MenuItem from "./MenuItem";
 import { GET_MENU } from "../../../graphql/queries";
 
 export default function Menu() {
-  const { loading, error, data } = useQuery(GET_MENU);
+  const { data } = useQuery(GET_MENU);
 
   return (
     <div className='flex flex-row justify-evenly flex-wrap p-4 mt-6 md:mt-10 lg:mt-14'>

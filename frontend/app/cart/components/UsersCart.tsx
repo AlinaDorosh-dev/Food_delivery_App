@@ -1,11 +1,10 @@
 "use client";
-import { useContext } from "react";
-import { MenuContext } from "../../../context/MenuContext";
+import useCart from "@/hooks/useCart";
 import CartItem from "./CartItem";
 import Total from "./Total";
 
 export default function UsersCart() {
-  const { cartItems } = useContext(MenuContext);
+  const { cartItems } = useCart();
 
   return (
     <div className='bg-orange-50 min-h-screen min-w-full absolute top-0'>

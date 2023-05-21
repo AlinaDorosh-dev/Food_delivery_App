@@ -1,11 +1,43 @@
 "use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useMutation } from "@apollo/client";
+import { CREATE_USER } from "@/graphql/mutations";
+import { useState, useEffect } from "react";
+import useAuth from "@/hooks/useAuth";
+import useCart from "@/hooks/useCart";
 
-import FormSection from "../../../UI/FormSection";
+import FormSection from "../../UI/FormSection";
 
 export default function SignUpForm() {
+  //next router
+  const router = useRouter();
+  
+  const { setToken } = useAuth();
+  const { cartItems } = useCart();
+
+  //mutation to create a new user
+  const [createUser, { error }] = useMutation(CREATE_USER);
+
+  //state to message text
+  const [message, setMessage] = useState<string>("");
+
+  useEffect(() => {
+    if (error) {
+      if (error.message === "User already exists") {
+        setMessage(`${error.message}. You will be redirected to login form`);
+        setTimeout(() => {
+          router.push("/login");
+          setMessage("");
+        }, 3000);
+      } else {
+        setMessage(error.message);
+      }
+    }
+  }, [error]);
+
   //form validation
   const formik = useFormik({
     initialValues: {
@@ -28,10 +60,54 @@ export default function SignUpForm() {
         .required("Password confirmation is required")
         .oneOf([Yup.ref("password")], "Passwords must match"),
     }),
-    onSubmit: (values) => {
-      console.log(values);
+    onSubmit: async (values) => {
+      const { name, surname, email, password } = values;
+      try {
+        const { data } = await createUser({
+          variables: {
+            input: {
+              firstName: name,
+              lastName: surname,
+              email: email,
+              password: password,
+            },
+          },
+        });
+       
+        if (data?.createUser.code === 200) {
+          
+          const { token } = data.createUser;
+          setToken(token);
+          setMessage(data?.createUser.message);
+          setTimeout(() => {
+            if (cartItems.length > 0) {
+              router.push("/order");
+            } else {
+              router.push("/menu");
+            }
+            setMessage("");
+          }, 3000);
+        }
+      } catch (error) {
+        console.log(error);
+      }
     },
   });
+
+  const showMessage = () => {
+    return (
+      <div
+        className={
+          error
+            ? "bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 mb-2"
+            : "bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-2"
+        }
+        role='alert'
+      >
+        <p>{message}</p>
+      </div>
+    );
+  };
 
   return (
     <div className='flex flex-col items-center justify-center mt-5'>
@@ -40,6 +116,7 @@ export default function SignUpForm() {
           className='bg-white shadow-md rounded px-8 pt-6 pb-8  lg:pb-4 mb-6'
           onSubmit={formik.handleSubmit}
         >
+          {message ? showMessage() : null}
           <FormSection
             label='name'
             type='text'

@@ -1,6 +1,6 @@
 "use client";
-import { useContext, useState, useEffect } from "react";
-import { MenuContext } from "../../../context/MenuContext";
+import { useState } from "react";
+
 import { IoTrashBin } from "react-icons/io5";
 import ConfirmationModal from "./ConfirmationModal";
 
@@ -21,13 +21,13 @@ function CartItem({ item }: Props) {
       <div className='flex justify-between items-center border border-gray-300 rounded-lg px-2 py-1 shadow-xl my-4 w-[80%] md:w-1/2 max-w-xl h-[150px] relative  shadow-orange-300/50 hover:shadow-orange-400/100 transition duration-300 ease-in-out transform '>
         <div className='flex items-center'>
           <div className='relative '>
-             <Image
+            <Image
               src={item.menuItem.image}
               alt={item.menuItem.name}
               width={80}
               height={30}
               className='rounded-lg object-cover'
-            /> 
+            />
           </div>
           <div className='ml-4'>
             <p className='text-slate-600 font-semibold text-base'>

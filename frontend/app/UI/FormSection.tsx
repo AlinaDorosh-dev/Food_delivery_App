@@ -53,10 +53,10 @@ export default function FormSection({
             onMouseDown={handleMouseDownPassword}
           >
             {showPassword ? (
-              <BsEyeSlash className='inline-block mr-3 ml-2 mb-1  text-slate-700 font-semibold'
+              <BsEyeSlash className='inline-block mr-2 ml-2 mb-1  text-slate-700 font-semibold'
               size={20} />
             ) : (
-              <BsEye className='inline-block mr-3 ml-2 mb-1  text-slate-700 font-semibold' size={20}/>
+              <BsEye className='inline-block mr-2 ml-2 mb-1  text-slate-700 font-semibold' size={20}/>
             )}
           </button>
         </div>

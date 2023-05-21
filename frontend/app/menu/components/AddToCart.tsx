@@ -1,5 +1,5 @@
-import { useContext, useState } from "react";
-import { MenuContext } from "../../../context/MenuContext";
+import { useState } from "react";
+import useCart from "@/hooks/useCart";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 
 type Props = {
@@ -7,7 +7,7 @@ type Props = {
 };
 
 export default function AddToCart({ item }: Props) {
-  const { setCartItems } = useContext(MenuContext);
+  const { setCartItems } = useCart();
   const [quantity, setQuantity] = useState<number>(1);
 
   const handleAddToCart = () => {
@@ -27,7 +27,6 @@ export default function AddToCart({ item }: Props) {
           type='number'
           className='w-12 h-8 border border-gray-300 rounded-lg text-center'
           value={quantity}
-          defaultValue={1}
           min={1}
           max={10}
           onChange={(e) => setQuantity(parseInt(e.target.value))}
