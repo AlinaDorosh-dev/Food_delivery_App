@@ -17,6 +17,11 @@ type OrderItem ={
   quantity: number;
 }
 
+type MenuContext = {
+  menuItems: MenuItem[];
+  setMenuItems: React.Dispatch<React.SetStateAction<MenuItem[]>>;
+};
+
 type CartContext = {
   cartItems:OrderItem[];
   setCartItems: React.Dispatch<React.SetStateAction<OrderItem[]>>;

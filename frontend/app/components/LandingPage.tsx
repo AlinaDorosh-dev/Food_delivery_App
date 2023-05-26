@@ -11,11 +11,11 @@ export default function LandingPage() {
             <br />
             Good mood.
           </h1>
-          <p className='mt-4 text-xl text-slate-600 font-semibold'>
+          <p className='mt-4 text-xl text-slate-600 font-semibold drop-shadow-xl'>
             Free delivery on orders over 30€
           </p>
           <Link href='/menu'>
-            <button className='mt-8 px-8 py-2 text-base border-orange-400 border-double border-4 font-bold  text-slate-600 w-[250px] hover:text-white hover:bg-orange-400 hover:border-white hover:border-double hover:shadow-2xl'>
+            <button className='animate-bounce mt-8 px-8 py-2 text-base border-orange-400 border-double border-4 font-bold  text-slate-600 w-[250px] hover:text-white hover:bg-orange-400 hover:border-white hover:border-double hover:shadow-2xl'>
               ORDER NOW
             </button>
           </Link>

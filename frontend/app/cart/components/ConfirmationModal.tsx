@@ -57,7 +57,7 @@ export default function ConfirmationModal({ item, setOpenConfirm }: Props) {
                       handleRemoveFromCart();
                     }}
                   >
-                    Yes, I'm sure
+                    Yes, I am sure
                   </button>
                   <button
                     data-modal-hide='popup-modal'

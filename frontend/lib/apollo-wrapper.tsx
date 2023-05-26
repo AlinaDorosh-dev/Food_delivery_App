@@ -5,14 +5,15 @@ import {
   ApolloLink,
   HttpLink,
   SuspenseCache,
+  
 } from "@apollo/client";
 import {
   ApolloNextAppProvider,
   NextSSRInMemoryCache,
   SSRMultipartLink,
-} from "@apollo/experimental-nextjs-app-support/ssr";
+  } from "@apollo/experimental-nextjs-app-support/ssr";
 
-function makeClient() {
+export function makeClient() {
   const httpLink = new HttpLink({
     useGETForQueries: true,
       uri: "http://localhost:4000/graphql",
@@ -20,6 +21,7 @@ function makeClient() {
 
   return new ApolloClient({
     connectToDevTools: true,
+    ssrMode: true,
     cache: new NextSSRInMemoryCache(),
     link:
       typeof window === "undefined"
