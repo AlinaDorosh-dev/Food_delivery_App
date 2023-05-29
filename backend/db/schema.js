@@ -6,7 +6,6 @@ type User {
     lastName: String!
     email: String!
     phone: String
-    address: Address
     createdAt: String
     savedDeliveryAddress: Address
     }
@@ -60,7 +59,7 @@ input AddressInput {
     address: String!
     city: String!
     zipCode: String!
-    country: String!
+    country: String
     }
 
 
@@ -76,6 +75,7 @@ type Mutation {
     # User
     createUser(input: UserInput): CreateUserResponse
     authUser(input: AuthInput): Token
+    saveDeliveryAddress(input: AddressInput): String
 
     #Order
     createOrder(input: OrderInput): String

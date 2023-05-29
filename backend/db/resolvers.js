@@ -7,14 +7,22 @@ const resolvers = {
   Query: {
     getCustomerData: async (_, {}, ctx) => {
       try {
-        const customer = await Customer.findById(ctx.user.id);
-
-        if (!customer) {
+        const userId = ctx.user?.id;
+    
+        if (!userId) {
           throw new Error("User not found");
         }
-        console.log(customer);
+    
+        const customer = await Customer.findById(userId).select("-password");
+    
+        if (!customer) {
+          throw new Error("Customer not found");
+        }
+    
         return customer;
-      } catch (error) {}
+      } catch (error) {
+        throw new Error(error);
+      }
     },
     getMenuItems: async () => {
       try {
@@ -94,6 +102,31 @@ const resolvers = {
       };
     },
 
+    saveDeliveryAddress: async (_, { input }, ctx) => {
+      const { address, city, zipCode } = input;
+      const userId = ctx.user?.id;
+
+      if (!userId) {
+        throw new Error("User not found");
+      }
+
+      try {
+        const updatedCustomer = await Customer.findByIdAndUpdate(
+          userId,
+          { savedDeliveryAddress: { address, city, zipCode } },
+          { new: true }
+        );
+
+        if (!updatedCustomer) {
+          throw new Error("Customer not found");
+        }
+
+        return "Delivery address saved successfully";
+      } catch (error) {
+        throw new Error(error);
+      }
+    },
+
     createOrder: async (_, { input }, ctx) => {
       //Destructure input
       const { items, deliveryAddress, totalPrice } = input;
@@ -128,23 +161,23 @@ const resolvers = {
         (count, item) => count + item.price * item.quantity,
         0
       );
-      
+
       const delivery = calculatedTotalOrder > 30 ? 0 : 3.5;
       const calculatedTotalPrice = calculatedTotalOrder + delivery;
-     
+
       if (calculatedTotalPrice !== totalPrice) {
         throw new Error("Invalid total price");
       }
 
       // Create order
       try {
-        const newOrder = await new Order({
+        await new Order({
           customer,
           items,
           deliveryAddress,
           totalPrice,
         }).save();
-        console.log(newOrder);
+        
         return "Order created successfully";
       } catch (error) {
         throw new Error(error);
