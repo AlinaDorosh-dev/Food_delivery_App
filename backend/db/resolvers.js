@@ -1,10 +1,21 @@
-import MenuItem from "../models/MenuItem.js";
-import Customer from "../models/Customer.js";
+import { Customer, MenuItem, Order } from "../models/index.js";
 import { generateToken } from "../lib/jwt.js";
 import bcrypt from "bcrypt";
+import mongoose from "mongoose";
 
 const resolvers = {
   Query: {
+    getCustomerData: async (_, {}, ctx) => {
+      try {
+        const customer = await Customer.findById(ctx.user.id);
+
+        if (!customer) {
+          throw new Error("User not found");
+        }
+        console.log(customer);
+        return customer;
+      } catch (error) {}
+    },
     getMenuItems: async () => {
       try {
         const menuItems = await MenuItem.find({});
@@ -81,6 +92,63 @@ const resolvers = {
       return {
         token: generateToken(foundUser, process.env.SECRET, "24h"),
       };
+    },
+
+    createOrder: async (_, { input }, ctx) => {
+      //Destructure input
+      const { items, deliveryAddress, totalPrice } = input;
+
+      // Get customer
+      const customer = ctx.user?.id;
+
+      // Verify customer
+      if (!customer) {
+        throw new Error("Access denied");
+      }
+      const foundCustomer = await Customer.findById(customer);
+      if (!foundCustomer) {
+        throw new Error("Invalid customer");
+      }
+
+      // Verify items
+      const ObjectId = mongoose.Types.ObjectId;
+
+      const menuItemsIds = items.map((item) => item.menuItem);
+
+      const menuItems = await MenuItem.find({
+        _id: { $in: menuItemsIds.map((item) => new ObjectId(item)) },
+      });
+
+      if (menuItems.length !== items.length) {
+        throw new Error("Invalid menu items");
+      }
+
+      // Verify total price
+      const calculatedTotalOrder = items.reduce(
+        (count, item) => count + item.price * item.quantity,
+        0
+      );
+      
+      const delivery = calculatedTotalOrder > 30 ? 0 : 3.5;
+      const calculatedTotalPrice = calculatedTotalOrder + delivery;
+     
+      if (calculatedTotalPrice !== totalPrice) {
+        throw new Error("Invalid total price");
+      }
+
+      // Create order
+      try {
+        const newOrder = await new Order({
+          customer,
+          items,
+          deliveryAddress,
+          totalPrice,
+        }).save();
+        console.log(newOrder);
+        return "Order created successfully";
+      } catch (error) {
+        throw new Error(error);
+      }
     },
   },
 };

@@ -1,31 +1,6 @@
 import mongoose from "mongoose";
+import { addressSchema } from "./address.js";
 
-const addressSchema = new mongoose.Schema({
-    street: {
-    type: String,
-        },
-    number: {
-    type: String,
-        },
-    floor: {
-    type: String,
-        },
-    door: {
-    type: String,
-        },
-  city: {
-    type: String,
-  },
-  zipCode: {
-    type: Number,
-    minlength: 5,
-    maxlength: 5,
-  },
-  country: {
-    type: String,
-    default: "Spain",
-  },
-});
 
 const customerSchema = new mongoose.Schema({
   firstName: {
@@ -58,12 +33,9 @@ const customerSchema = new mongoose.Schema({
 
   createdAt: { type: Date, default: Date.now() },
 
-  address: addressSchema, 
+  savedDeliveryAddress: addressSchema,
 
-  birthDate: {
-    type: Date,
-    
-  },
+  
 });
 
 const Customer = mongoose.model("Customer", customerSchema);

@@ -7,18 +7,15 @@ type User {
     email: String!
     phone: String
     address: Address
-    birthDate: String
     createdAt: String
+    savedDeliveryAddress: Address
     }
 
 type Address {
-    street: String
-    number: String
-    floor: String
-    door: String
-    city: String
-    zipCode: String
-    country: String
+    address: String!
+    city: String!
+    zipCode: String!
+    country: String!
 }    
 
 type Token {
@@ -47,9 +44,29 @@ input AuthInput {
       password: String!
     }
 
+input OrderInput {
+    items: [OrderItemInput]
+    totalPrice: Float!
+    deliveryAddress: AddressInput
+    }
+
+input OrderItemInput {
+    menuItem: ID!
+    price:Float!
+    quantity: Int!
+    }
+
+input AddressInput {
+    address: String!
+    city: String!
+    zipCode: String!
+    country: String!
+    }
 
 
 type Query {
+    # Customers
+    getCustomerData: User
 
     # Menu Items
     getMenuItems: GetMenuItemsResponse
@@ -59,6 +76,9 @@ type Mutation {
     # User
     createUser(input: UserInput): CreateUserResponse
     authUser(input: AuthInput): Token
+
+    #Order
+    createOrder(input: OrderInput): String
 }
 
 type CreateUserResponse {
