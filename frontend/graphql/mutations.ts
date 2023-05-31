@@ -26,3 +26,15 @@ export const AUTH_USER = gql`
     }
   }
 `;
+
+export const SAVE_DELIVERY_DETAILS = gql`
+  mutation SaveDeliveryDetails($input: DeliveryDetaisInput) {
+    saveDeliveryDetails(input: $input)
+  }
+`;
+
+export const CREATE_ORDER = gql`
+mutation CreateOrder($input: OrderInput) {
+  createOrder(input: $input)
+}
+`;

@@ -16,3 +16,18 @@ export const GET_MENU = gql`
     }
   }
 `;
+
+export const GET_USER_DATA = gql`
+  query GetCustomerData {
+    getCustomerData {
+      firstName
+      lastName
+      phone
+      savedDeliveryAddress {
+        address
+        city
+        zipCode
+      }
+    }
+  }
+`;

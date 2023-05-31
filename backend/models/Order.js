@@ -22,7 +22,13 @@ const orderSchema = new mongoose.Schema({
     enum: ["pending", "delivered"],
     default: "pending",
   },
-  deliveryAddress: addressSchema,
+  deliveryDetails: {
+    receiver: { type: String, required: true },
+    address: { type: String, required: true },
+    city: { type: String, required: true },
+    zipCode: { type: String, required: true },
+    phone: { type: String, required: true },
+  },
   totalPrice: { type: Number, required: true },
   createdAt: { type: Date, default: Date.now() },
 });

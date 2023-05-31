@@ -17,7 +17,9 @@ export default function AuthContextProvider({ children }: ChildrenProps) {
   }, []);
 
   useEffect(() => {
+   if(token !== "") {
     sessionStorage.setItem("auth", token);
+   }
   }, [token]);
 
   return (

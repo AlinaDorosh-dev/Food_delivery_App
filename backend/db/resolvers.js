@@ -6,19 +6,20 @@ import mongoose from "mongoose";
 const resolvers = {
   Query: {
     getCustomerData: async (_, {}, ctx) => {
+      console.log("From resolver", ctx.user);
       try {
         const userId = ctx.user?.id;
-    
+
         if (!userId) {
           throw new Error("User not found");
         }
-    
+
         const customer = await Customer.findById(userId).select("-password");
-    
+
         if (!customer) {
           throw new Error("Customer not found");
         }
-    
+
         return customer;
       } catch (error) {
         throw new Error(error);
@@ -102,10 +103,12 @@ const resolvers = {
       };
     },
 
-    saveDeliveryAddress: async (_, { input }, ctx) => {
-      const { address, city, zipCode } = input;
+    saveDeliveryDetails: async (_, { input }, ctx) => {
+      const { address, city, zipCode, phone } = input;
       const userId = ctx.user?.id;
-
+      if (!address || !city || !zipCode || !phone) {
+        throw new Error("Missing some of required fields");
+      }
       if (!userId) {
         throw new Error("User not found");
       }
@@ -113,7 +116,7 @@ const resolvers = {
       try {
         const updatedCustomer = await Customer.findByIdAndUpdate(
           userId,
-          { savedDeliveryAddress: { address, city, zipCode } },
+          { savedDeliveryAddress: { address, city, zipCode }, phone },
           { new: true }
         );
 
@@ -129,7 +132,12 @@ const resolvers = {
 
     createOrder: async (_, { input }, ctx) => {
       //Destructure input
-      const { items, deliveryAddress, totalPrice } = input;
+      const { items, deliveryDetails, totalPrice } = input;
+
+      //If items is empty or totalPrice is 0 or deliveryDetails is empty throw error
+      if (!items.length || !totalPrice || !deliveryDetails) {
+        throw new Error("Missing some of required fields");
+      }
 
       // Get customer
       const customer = ctx.user?.id;
@@ -171,14 +179,14 @@ const resolvers = {
 
       // Create order
       try {
-        await new Order({
+      const newOrder=  await new Order({
           customer,
           items,
-          deliveryAddress,
+          deliveryDetails,
           totalPrice,
         }).save();
-        
-        return "Order created successfully";
+
+        return `Order Nº ${newOrder._id} created successfully`;
       } catch (error) {
         throw new Error(error);
       }

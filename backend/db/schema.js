@@ -14,7 +14,7 @@ type Address {
     address: String!
     city: String!
     zipCode: String!
-    country: String!
+    
 }    
 
 type Token {
@@ -46,7 +46,7 @@ input AuthInput {
 input OrderInput {
     items: [OrderItemInput]
     totalPrice: Float!
-    deliveryAddress: AddressInput
+    deliveryDetails: DeliveryDetaisInput
     }
 
 input OrderItemInput {
@@ -55,12 +55,15 @@ input OrderItemInput {
     quantity: Int!
     }
 
-input AddressInput {
+
+
+input DeliveryDetaisInput{
+    receiver: String!
     address: String!
     city: String!
     zipCode: String!
-    country: String
-    }
+    phone: String!
+}    
 
 
 type Query {
@@ -75,7 +78,7 @@ type Mutation {
     # User
     createUser(input: UserInput): CreateUserResponse
     authUser(input: AuthInput): Token
-    saveDeliveryAddress(input: AddressInput): String
+    saveDeliveryDetails (input: DeliveryDetaisInput): String
 
     #Order
     createOrder(input: OrderInput): String
