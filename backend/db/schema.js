@@ -28,6 +28,7 @@ type MenuItem {
     category: String
     image: String
     description: String
+    extendedDescription: String,
     ingredients: String
 }
 

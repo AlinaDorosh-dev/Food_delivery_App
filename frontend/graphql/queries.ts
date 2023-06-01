@@ -12,6 +12,7 @@ export const GET_MENU = gql`
         id
         description
         category
+        extendedDescription
       }
     }
   }

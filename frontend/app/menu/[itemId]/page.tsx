@@ -52,12 +52,13 @@ export default async function SingleItemPage({
 
   const { itemId } = params;
   const foundItem = menuItems.find((item: MenuItem) => item.id === itemId);
+  console.log(foundItem);
   if (!foundItem) {
     return notFound();
   }
 
   return (
-    <div className='bg-orange-50 min-h-screen min-w-full absolute top-0 py-4 px-8'>
+    <div className='bg-orange-50  min-w-full absolute top-0 min-h-max'>
       <SingleItem foundItem={foundItem} />
     </div>
   );

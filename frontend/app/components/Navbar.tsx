@@ -11,7 +11,7 @@ import useCart from "@/hooks/useCart";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [bgColor, setBgColor] = useState<string>("transparent");
-  const [textColor, setTextColor] = useState<string>("text-slate-700");
+  const [textColor, setTextColor] = useState<string>("text-slate-800");
   const [visible, setVisible] = useState<boolean>(true);
 
   const { cartItems } = useCart();
@@ -26,7 +26,7 @@ export default function Navbar() {
         setVisible(false);
       } else {
         setBgColor("transparent");
-        setTextColor("text-slate-700");
+        setTextColor("text-slate-800");
         setVisible(true);
       }
     };

@@ -1,4 +1,4 @@
-
+"use client";
 import { useState } from "react";
 import useCart from "@/hooks/useCart";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
@@ -12,7 +12,7 @@ export default function AddToCart({ item }: Props) {
   const [quantity, setQuantity] = useState<number>(1);
 
   const handleAddToCart = () => {
-    setCartItems((prev) => [...prev, { menuItem: item, quantity: quantity }]);
+    setCartItems((prev) => [...prev, { menuItem: item, quantity: quantity, price: item.price }]);
   };
   return (
     <div className='flex justify-between items-center mt-4'>

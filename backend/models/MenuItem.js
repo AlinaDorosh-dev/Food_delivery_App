@@ -11,6 +11,7 @@ const menuItemSchema = new mongoose.Schema({
   },
   image: { type: String, required: true, trim: true },
   description: { type: String, required: true, trim: true },
+  extendedDescription: { type: String, required: true, trim: true },
   ingredients: { type: String, required: true, trim: true },
 });
 

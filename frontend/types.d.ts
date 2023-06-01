@@ -6,6 +6,8 @@ type MenuItem = {
   image: string;
   category: string;
   ingredients: string;
+  extendedDescription:string;
+
 };
 
 type ChildrenProps = {
