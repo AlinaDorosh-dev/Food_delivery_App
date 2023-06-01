@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-
+import { motion, AnimatePresence } from "framer-motion";
 import AddToCart from "./AddToCart";
 
 type Props = {
@@ -11,8 +11,12 @@ export default function MenuItem({ item }: Props) {
   const { id, name, description, ingredients, category, image, price } = item;
 
   return (
-    
-      <div
+    <AnimatePresence>
+      <motion.div
+        initial={{ x: "100%" , opacity: 0 }}
+        animate={{ x: 0 , opacity: 1}}
+        exit={{ x: "100%" }}
+        transition={{ duration: 1 }}
         key={id}
         className='w-full bg-orange-50  max-w-sm border border-gray-200 rounded-lg shadow mx-auto my-4 sm:m-4 shadow-orange-500/50'
       >
@@ -40,8 +44,9 @@ export default function MenuItem({ item }: Props) {
             </p>
             <div className='flex items-center justify-between mb-8'>
               <div className='flex items-center mt-2.5 mb-5'>
-                <Link href={`/menu/${id}`}
-                className='text-orange-400 font-semibold text-sm hover:text-orange-500'
+                <Link
+                  href={`/menu/${id}`}
+                  className='text-orange-400 font-semibold text-sm hover:text-orange-500'
                 >
                   More info
                 </Link>
@@ -53,7 +58,7 @@ export default function MenuItem({ item }: Props) {
           </div>
           <AddToCart item={item} />
         </div>
-      </div>
-    
+      </motion.div>
+    </AnimatePresence>
   );
 }

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import AddToCart from "../../components/AddToCart";
 import BackToMenu from "./BackToMenu";
-import { motion } from "framer-motion";
+
 
 type Props = {
   foundItem: MenuItem;
@@ -9,7 +9,7 @@ type Props = {
 
 export default function SingleItem({ foundItem }: Props) {
   const { name, extendedDescription, price, image, ingredients } = foundItem;
-  console.log(extendedDescription.length);
+  
   return (
     <div className='flex flex-col w-screen '>
       <div className='flex flex-col w-screen '>
