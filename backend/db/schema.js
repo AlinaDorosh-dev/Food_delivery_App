@@ -32,6 +32,29 @@ type MenuItem {
     ingredients: String
 }
 
+type DeliveryDetails {
+    receiver: String!
+    address: String!
+    city: String!
+    zipCode: String!
+    phone: String!
+}
+
+type OrderItem {
+    menuItem: MenuItem!
+    quantity: Int!
+    }
+
+type Order {    
+    id: ID
+    customer: ID!
+    items: [OrderItem]!
+    status: String!
+    deliveryDetails: DeliveryDetails!
+    totalPrice: Float!
+    createdAt: String!
+    }
+
 input UserInput {
       firstName: String!
       lastName: String!
@@ -57,7 +80,6 @@ input OrderItemInput {
     }
 
 
-
 input DeliveryDetaisInput{
     receiver: String!
     address: String!
@@ -73,6 +95,9 @@ type Query {
 
     # Menu Items
     getMenuItems: GetMenuItemsResponse
+
+    # Orders
+    getOrdersHistory: GetOrderHistoryResponse
 }
 
 type Mutation {
@@ -98,6 +123,13 @@ type CreateUserResponse {
 type GetMenuItemsResponse{
     success: Boolean
     menuItems: [MenuItem]
+    code: Int
+    message: String
+}
+
+type GetOrderHistoryResponse{
+    success: Boolean
+    orders: [Order]
     code: Int
     message: String
 }

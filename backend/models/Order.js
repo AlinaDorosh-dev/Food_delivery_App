@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { addressSchema } from "./address.js";
 
 const orderSchema = new mongoose.Schema({
   customer: {

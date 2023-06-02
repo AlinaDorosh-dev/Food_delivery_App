@@ -43,6 +43,32 @@ const resolvers = {
         };
       }
     },
+    getOrdersHistory: async (_, {}, ctx) => {
+      try {
+        const userId = ctx.user?.id;
+        if (!userId) {
+          throw new Error("User not found");
+        }
+
+        const orders = await Order.find({ customer: userId })
+          .populate("items.menuItem")
+          .sort({ createdAt: -1 });
+
+        return {
+          success: true,
+          orders,
+          code: 200,
+          message: "Orders retrieved successfully",
+        };
+      } catch (error) {
+        return {
+          success: false,
+          code: error.extensions.response.status,
+          message: error.extensions.response.body,
+          orders: null,
+        };
+      }
+    },
   },
   Mutation: {
     createUser: async (_, { input }) => {
@@ -179,7 +205,7 @@ const resolvers = {
 
       // Create order
       try {
-      const newOrder=  await new Order({
+        const newOrder = await new Order({
           customer,
           items,
           deliveryDetails,
