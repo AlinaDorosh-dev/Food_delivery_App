@@ -7,16 +7,36 @@ import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { FaUserCircle, FaShoppingCart } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import useCart from "@/hooks/useCart";
+import useAuth from "@/hooks/useAuth";
 
 export default function Navbar() {
+  //states for navbar styles
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [bgColor, setBgColor] = useState<string>("transparent");
   const [textColor, setTextColor] = useState<string>("text-slate-800");
   const [visible, setVisible] = useState<boolean>(true);
 
+  //check if user is logged in
+  const { token } = useAuth();
+
+  const [userAuthenticated, setUserAuthenticated] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (token) {
+      setUserAuthenticated(true);
+    }
+  }, [token]);
+
   const { cartItems } = useCart();
 
   const pathname = usePathname();
+
+  useEffect(() => {
+    if (pathname !== "/" && pathname !== "/menu") {
+      setBgColor("bg-slate-600");
+      setTextColor("text-orange-50");
+    }
+  }, [pathname]);
 
   useEffect(() => {
     const changeColorOnScroll = () => {
@@ -60,8 +80,8 @@ export default function Navbar() {
               key={item.name}
               className={
                 pathname === item.path
-                  ? "px-5 text-sm underline decoration-slate-600"
-                  : "px-5 text-sm hover:underline decoration-orange-500"
+                  ? "px-5 text-sm underline underline-offset-8 decoration-2 decoration-slate-800"
+                  : "px-5 text-sm hover:underline decoration-orange-600 decoration-2 underline-offset-8"
               }
             >
               <Link href={item.path}>{item.name}</Link>
@@ -83,8 +103,8 @@ export default function Navbar() {
               </div>
             </Link>
           </li>
-          <li className='px-5 text-base hover:underline decoration-orange-500'>
-            <Link href='/login'>
+          <li className='px-5 text-base hover:text-orange-500'>
+            <Link href={userAuthenticated ? "/user" : "/login"}>
               <FaUserCircle size={25} />
             </Link>
           </li>
@@ -141,7 +161,9 @@ export default function Navbar() {
                   : "p-4 text-2xl"
               }
             >
-              <Link href='/login'>Login</Link>
+              <Link href={userAuthenticated ? "/user" : "/login"}>
+                {userAuthenticated ? "User Room" : "Login"}
+              </Link>
             </li>
           </ul>
         </div>

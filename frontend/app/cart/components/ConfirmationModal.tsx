@@ -28,7 +28,7 @@ export default function ConfirmationModal({ item, setOpenConfirm }: Props) {
     <>
       <div
         id='popup-modal'
-        className='fixed sm:translate-x-1/4 lg:translate-x-1/3 translate-y-10 sm:translate-y-1/4  z-50 p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full'
+        className='fixed  sm:translate-x-1/4 lg:translate-x-1/3 translate-y-1/2 sm:translate-y-1/3 md:translate-y-1/4 z-50 p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full'
       >
         <div className='relative w-full max-w-md max-h-full'>
           <div className='relative bg-white rounded-lg shadow'>

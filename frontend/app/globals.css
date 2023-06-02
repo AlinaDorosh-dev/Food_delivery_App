@@ -6,8 +6,12 @@ html {
   scroll-behavior: smooth;
  }
 
- button {
+button {
   cursor: pointer;
+ }
+
+ body{
+  background-color: #fff3e0
  }
 
 .custom-img{
@@ -37,7 +41,7 @@ html {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #222224;
+  background: #484849;
 }
 
 ::-webkit-scrollbar-track {
@@ -51,4 +55,23 @@ html {
 
 .slider-controler {
   display: none;
+}
+
+@keyframes spinner-grow {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+.spinner-grow-animation {
+  animation: spinner-grow 0.75s linear infinite;
 }

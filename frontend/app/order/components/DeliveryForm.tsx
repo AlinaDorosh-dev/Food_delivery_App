@@ -33,7 +33,7 @@ export default function DeliveryForm() {
     if (token) {
       setUserAuthenticated(true);
     }
-  }, []);
+  }, [token]);
 
   const [formValues, setFormValues] = useState<DeliveryFormValues>({
     name: "",

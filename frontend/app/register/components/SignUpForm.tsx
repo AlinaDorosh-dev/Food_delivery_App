@@ -76,7 +76,7 @@ export default function SignUpForm() {
        
         if (data?.createUser.code === 200) {
           
-          const { token } = data.createUser;
+          const { token } = data.createUser.token;
           setToken(token);
           setMessage(data?.createUser.message);
           setTimeout(() => {
@@ -158,7 +158,7 @@ export default function SignUpForm() {
           </div>
           <div className='mt-4'>
             <p className='text-slate-600 text-xs font-semibold'>
-              Already have an account yet?
+              Already have an account?
             </p>
             <Link href='/register'>
               <p className='text-slate-600 hover:text-sky-800 text-sm font-semibold hover:underline decoration-orange-500'>

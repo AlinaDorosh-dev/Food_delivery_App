@@ -23,11 +23,13 @@ type OrderItem = {
 type MenuContext = {
   menuItems: MenuItem[];
   setMenuItems: React.Dispatch<React.SetStateAction<MenuItem[]>>;
+  pending: boolean;
 };
 
 type CartContext = {
   cartItems: OrderItem[];
   setCartItems: React.Dispatch<React.SetStateAction<OrderItem[]>>;
+  pending: boolean;
 };
 
 type AuthContext = {

@@ -7,12 +7,7 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        bkg: "#F7F7F7",
-        muted: "#EAEAEA",
-        accent: "#66CCC1",
-      },
-      
+          
       fontFamily: {
         sans: ["Outfit", "sans-serif"],
       },
