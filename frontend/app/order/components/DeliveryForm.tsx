@@ -87,7 +87,6 @@ export default function DeliveryForm() {
       phone: Yup.string().required("Phone is required"),
     }),
     onSubmit: async (values) => {
-      console.log("values", values);
       setFormValues(values);
       setOpenConfirmation(true);
     },

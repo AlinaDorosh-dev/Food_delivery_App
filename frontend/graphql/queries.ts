@@ -32,3 +32,32 @@ export const GET_USER_DATA = gql`
     }
   }
 `;
+
+export const GET_ORDERS_HISTORY = gql`
+  query GetOrdersHistory {
+    getOrdersHistory {
+      code
+      message
+      orders {
+        createdAt
+        deliveryDetails {
+          address
+          city
+          phone
+          receiver
+          zipCode
+        }
+        id
+        status
+        totalPrice
+        items {
+          menuItem {
+            name
+            price
+          }
+          quantity
+        }
+      }
+    }
+  }
+`;

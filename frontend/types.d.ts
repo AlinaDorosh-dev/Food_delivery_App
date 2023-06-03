@@ -72,3 +72,24 @@ type DeliveryFormValues = {
   phone: string;
   saveDetails: boolean;
 };
+
+type OrderHistoryItem = {
+  createdAt: string;
+        deliveryDetails: {
+          address: string;
+          city: string;
+          phone: string;
+          receiver: string;
+          zipCode: string;
+        }
+        id: string;
+        status: string;
+        totalPrice: number;
+        items: {
+          menuItem :{
+            name: string;
+            price: number;
+          }
+          quantity: number;
+        }
+};

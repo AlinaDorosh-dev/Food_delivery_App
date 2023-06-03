@@ -17,7 +17,6 @@ export default function MenuContextProvider({ children }: ChildrenProps) {
   const { data, loading } = useQuery(GET_MENU);
 
   useEffect(() => {
-    console.log("loading", loading);
     setPending(loading); // Update the pending state based on the loading value
   }, [loading]);
 
