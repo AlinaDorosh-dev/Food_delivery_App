@@ -1,5 +1,7 @@
-import Spinner from "@/app/UI/Spinner";
+import Spinner from "../../UI/Spinner";
 import Link from "next/link";
+import HistoryItem from "./HistoryItem";
+
 type Props = {
   getOrdersHistory: {
     code: string;
@@ -13,7 +15,9 @@ export default function OrderHistory({
   getOrdersHistory,
   loadingOrders,
 }: Props) {
-  const { orders } = getOrdersHistory ?? [];
+  const { orders } = getOrdersHistory || [];
+  console.log(orders);
+
   return (
     <div>
       {loadingOrders ? (
@@ -26,12 +30,20 @@ export default function OrderHistory({
                 No orders yet
               </p>
               <Link href='/menu'>
-                <button
-                    className='bg-orange-500 text-white font-medium px-4 py-2 rounded-md mt-8 mx-auto block hover:bg-orange-600'
-                >Order now</button>
+                <button className='bg-orange-500 text-white font-medium px-4 py-2 rounded-md mt-8 mx-auto block hover:bg-orange-600'>
+                  Order now
+                </button>
               </Link>
             </div>
-          ) : null}
+          ) : (
+            <div>
+              <div className='flex flex-col items-center justify-center w-full'>
+                {orders?.map((order: OrderHistoryItem) => (
+                  <HistoryItem key={order.id} order={order} />
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>

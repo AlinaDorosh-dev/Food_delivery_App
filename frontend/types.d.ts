@@ -6,8 +6,7 @@ type MenuItem = {
   image: string;
   category: string;
   ingredients: string;
-  extendedDescription:string;
-
+  extendedDescription: string;
 };
 
 type ChildrenProps = {
@@ -75,21 +74,23 @@ type DeliveryFormValues = {
 
 type OrderHistoryItem = {
   createdAt: string;
-        deliveryDetails: {
-          address: string;
-          city: string;
-          phone: string;
-          receiver: string;
-          zipCode: string;
-        }
-        id: string;
-        status: string;
-        totalPrice: number;
-        items: {
-          menuItem :{
-            name: string;
-            price: number;
-          }
-          quantity: number;
-        }
+  deliveryDetails: {
+    address: string;
+    city: string;
+    phone: string;
+    receiver: string;
+    zipCode: string;
+  };
+  id: string;
+  status: string;
+  totalPrice: number;
+  items: [
+    {
+      menuItem: {
+        name: string;
+        price: number;
+      };
+      quantity: number;
+    }
+  ];
 };

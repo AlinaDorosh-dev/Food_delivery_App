@@ -4,38 +4,42 @@
 
 html {
   scroll-behavior: smooth;
- }
+}
 
 button {
   cursor: pointer;
- }
-
- body{
-  background-color: #fff3e0
- }
-
-.custom-img{
-    background-image: url("../public/images/main-banner.jpg");
 }
 
-.custom-img-two{
+body {
+  background-color: #fff3e0;
+}
+
+.custom-img {
+  background-image: url("../public/images/main-banner.jpg");
+}
+
+.custom-img-two {
   background-image: url("../public/images/679.jpg");
 }
 
-.custom-img-three{
+.custom-img-three {
   background-image: url("../public/images/wooden-natural-floor-decoration-concept.jpg");
 }
 
-.custom-img-four{
+.custom-img-four {
   background-image: url("../public/images/ketogenic-low-carbs-diet-food-selection-white-wall.jpg");
 }
 
+.custom-img-five {
+  background-image: url("../public/images/person-s-hand-holding-alarm-clock-hand-breakfast-table.jpg");
+}
+
 ::-webkit-scrollbar {
-  width: .6rem;
+  width: 0.6rem;
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: .4rem;
+  border-radius: 0.4rem;
   background: #797979;
   transition: all 0.5s ease-in-out;
 }

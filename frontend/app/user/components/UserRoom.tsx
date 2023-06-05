@@ -8,10 +8,20 @@ import Spinner from "../../UI/Spinner";
 import UserDrawer from "./UserDrawer";
 import PersonalInfo from "./PersonalInfo";
 import OrderHistory from "./OrderHistory";
+import LogoutModal from "./LogoutModal";
 
 export default function UserRoom() {
-  const { token } = useAuth();
+  const { token, setToken } = useAuth();
   const router = useRouter();
+
+  const [confirmLogout, setConfirmLogout] = useState<boolean>(false);
+
+  const handleLogout = () => {
+    sessionStorage.removeItem("auth");
+    setToken("");
+    setConfirmLogout(false);
+    router.push("/");
+  };
 
   //Check if user is logged in
   //   useEffect(() => {
@@ -24,10 +34,9 @@ export default function UserRoom() {
   const { firstName, lastName, phone, savedDeliveryAddress } =
     data?.getCustomerData ?? {};
 
-  const { data: ordersData, loading: loadingOrders } = useQuery(GET_ORDERS_HISTORY);
+  const { data: ordersData, loading: loadingOrders } =
+    useQuery(GET_ORDERS_HISTORY);
   const { getOrdersHistory } = ordersData ?? {};
-
- 
 
   const [selectedTab, setSelectedTab] = useState<number>(0);
 
@@ -42,6 +51,7 @@ export default function UserRoom() {
       ) : (
         <>
           <UserDrawer
+            setConfirmLogout={setConfirmLogout}
             selectedTab={selectedTab}
             setSelectedTab={setSelectedTab}
           />
@@ -57,11 +67,17 @@ export default function UserRoom() {
                 savedDeliveryAddress={savedDeliveryAddress}
               />
             ) : (
-              <OrderHistory 
-              getOrdersHistory={getOrdersHistory}
-              loadingOrders={loadingOrders}
+              <OrderHistory
+                getOrdersHistory={getOrdersHistory}
+                loadingOrders={loadingOrders}
               />
             )}
+            {confirmLogout ? (
+              <LogoutModal
+                setConfirmLogout={setConfirmLogout}
+                handleLogout={handleLogout}
+              />
+            ) : null}
           </div>
         </>
       )}

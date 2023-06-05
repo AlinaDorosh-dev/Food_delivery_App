@@ -10,6 +10,7 @@ import Link from "next/link";
 import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
 import { motion } from "framer-motion";
 import OrderConfirmationModal from "./OrderConfirmationModal";
+import Spinner from "@/app/UI/Spinner";
 
 export default function DeliveryForm() {
   const [userData, setUserData] = useState<UserData>({
@@ -30,6 +31,7 @@ export default function DeliveryForm() {
 
   //Check if user is logged in
   useEffect(() => {
+    console.log("token", token);
     if (token) {
       setUserAuthenticated(true);
     }
@@ -48,7 +50,7 @@ export default function DeliveryForm() {
   const [onHover, setOnHover] = useState<boolean>(false);
   const [openConfirmation, setOpenConfirmation] = useState<boolean>(false);
 
-  const { data } = useQuery(GET_USER_DATA);
+  const { data, loading } = useQuery(GET_USER_DATA);
   const { firstName, lastName, phone, savedDeliveryAddress } = userData;
 
   useEffect(() => {
@@ -94,9 +96,10 @@ export default function DeliveryForm() {
 
   return (
     <>
-      {userAuthenticated ? (
+      {!loading && userAuthenticated ? (
         <>
           <div className='w-[90%] max-w-2xl mx-auto'>
+            {loading ? <Spinner /> : null}
             <form
               className='bg-white shadow-md rounded px-8 pt-4 md:pt-6 pb-4 md:pb-8 mb-4'
               onSubmit={formik.handleSubmit}
@@ -194,7 +197,8 @@ export default function DeliveryForm() {
             ) : null}
           </div>{" "}
         </>
-      ) : (
+      ) : null}
+      {!userAuthenticated && !loading ? (
         <div className='flex flex-col items-center justify-center w-full'>
           <h3 className=' text-2xl sm:text-xl font-semibold text-center  text-slate-700 max-w-xl p-3 mt-20'>
             Please log in before proceed.
@@ -206,7 +210,7 @@ export default function DeliveryForm() {
             <button>Go to login</button>
           </Link>
         </div>
-      )}
+      ) : null}
     </>
   );
 }
