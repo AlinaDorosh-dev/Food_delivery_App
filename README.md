@@ -1,4 +1,4 @@
-![Banner](https://github.com/AlinaDorosh-dev/Food_delivery_App/blob/main/frontend/public/images/Screenshot.png)
+![Banner](https://github.com/AlinaDorosh-dev/Food_delivery_App/blob/main/frontend/public/images/Screenshot%20.png)
 
 # Food delivery App
 
