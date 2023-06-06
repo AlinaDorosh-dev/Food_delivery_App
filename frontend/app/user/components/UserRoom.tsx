@@ -1,3 +1,6 @@
+/**
+ * @fileoverview user room component to display user's personal info and order history.
+ */
 "use client";
 import { useState, useEffect } from "react";
 import useAuth from "@/hooks/useAuth";

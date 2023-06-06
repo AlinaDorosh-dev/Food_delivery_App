@@ -1,8 +1,12 @@
+/**
+ * @fileoverview users cart component to show all items in the cart and total price.
+ */
 "use client";
 import useCart from "@/hooks/useCart";
 import CartItem from "./CartItem";
 import Total from "./Total";
 import Spinner from "@/app/UI/Spinner";
+import BackToMenu from "@/app/UI/BackToMenu";
 
 export default function UsersCart() {
   const { cartItems, pending } = useCart();
@@ -27,9 +31,18 @@ export default function UsersCart() {
             <CartItem key={item.menuItem.id} item={item} />
           ))
         ) : (
-          <p className={pending ? "hidden" : "text-base text-slate-700 mt-10"}>
-            Cart is empty
-          </p>
+          <div
+            className={
+              pending
+                ? "hidden"
+                : "flex flex-col text-base text-slate-700 mt-10 text-center"
+            }
+          >
+            <p className='text-base text-slate-700 mb-10 text-center'>
+              Cart is empty
+            </p>
+            <BackToMenu />
+          </div>
         )}
       </div>
       {!pending && itemsCount > 0 ? <Total /> : null}

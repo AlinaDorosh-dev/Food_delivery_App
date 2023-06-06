@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Confirmation component. It shows the order summary and allows to confirm the order.
+ * 
+ */
+
 import useCart from "@/hooks/useCart";
 import { GET_USER_DATA } from "@/graphql/queries";
 import { useQuery, useMutation } from "@apollo/client";
@@ -78,7 +83,7 @@ export default function Confirmation({
       });
       //If user wants to save delivery details, save them to DB
       if (saveDetails) {
-        const save = await saveDeliveryDetails({
+        await saveDeliveryDetails({
           variables: {
             input: {
               receiver: `${name} ${surname}`,
@@ -89,23 +94,24 @@ export default function Confirmation({
             },
           },
         });
-        console.log("save", save);
       }
-      //Clear cart
-      setCartItems([]);
-      //Clear local storage
-      localStorage.removeItem("cart");
-      //Set orderCreated to true
-      setOrderCreated(true);
-
+      if (newOrder) {
+        setOrderCreated(true);
+      }
       //Set timeout to close modal
       setTimeout(() => {
         //Redirect to menu page
         router.push("/menu");
         setOpenConfirmation(false);
-      }, 3000);
+      }, 2800);
 
-      console.log("newOrder", newOrder);
+      //Set timeout to clear cart and local storage
+      setTimeout(() => {
+        //Clear cart
+        setCartItems([]);
+        //Clear local storage
+        localStorage.removeItem("cart");
+      }, 3100);
     } catch (orderError) {
       console.log("orderError", orderError);
     }
@@ -118,23 +124,33 @@ export default function Confirmation({
           you for your order!
         </h2>
 
-        <h3 className='mb-4 text-md font-normal text-gray-500'>
+        <h3 className='mb-4 text-sm font-medium text-slate-700'>
           Here is your order summary:
         </h3>
-        <div className='flex flex-col text-slate-700 text-md mb-4'>
-          <div className='mb-4'>
+        <div className='flex flex-col items-center justify-center text-slate-700  text-sm mb-4 w-full'>
+          <div className='mb-2 border-b-4 border-gray-400 w-[95%]'>
             {cartItems.map((item) => (
-              <p key={item.menuItem.id}>
-                {item.quantity} {item.menuItem.name}
-              </p>
+              <div
+                key={item.menuItem.id}
+                className='flex justify-between mb-1  pb-1 w-full mx-auto'
+              >
+                <p>{item.menuItem.name}</p>
+                <p>
+                  {item.quantity}x{item.price} €
+                </p>
+              </div>
             ))}
+            <div className='flex justify-between mb-1  pb-1 w-full mx-auto'>
+              <p>Delivery</p>
+              <p>{delivery ? `${delivery}€` : "Free"} </p>
+            </div>
           </div>
 
-          <p className='font-semibold text-base mb-4'>
+          <p className='font-semibold text-sm mb-4'>
             Total to pay: {totalToPay}€
           </p>
-          <p className='font-semibold text-base mb-2'>Delivery details:</p>
-          <ul>
+          <p className='font-semibold text-sm '>Delivery details:</p>
+          <ul className='scale-75'>
             <li className='mb-1'>
               <span className='font-medium'>Reciever:</span> {name} {surname}
             </li>

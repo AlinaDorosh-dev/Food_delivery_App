@@ -1,3 +1,7 @@
+/**
+ * @fileoverview success message component to display a success message when an order is created successfully.
+ */
+
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import { motion } from "framer-motion";
 

@@ -1,3 +1,6 @@
+/**
+ * @fileoverview OrderConfirmationModal component to display a modal whether the order was successful or not.
+ */
 import { IoCloseSharp } from "react-icons/io5";
 import { useState } from "react";
 

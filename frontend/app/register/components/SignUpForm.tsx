@@ -1,3 +1,6 @@
+/**
+ * @fileoverview sign up form component 
+ */
 "use client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -5,7 +8,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useMutation } from "@apollo/client";
 import { CREATE_USER } from "@/graphql/mutations";
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 import useAuth from "@/hooks/useAuth";
 import useCart from "@/hooks/useCart";
 
@@ -14,7 +17,7 @@ import FormSection from "../../UI/FormSection";
 export default function SignUpForm() {
   //next router
   const router = useRouter();
-  
+
   const { setToken } = useAuth();
   const { cartItems } = useCart();
 
@@ -23,6 +26,15 @@ export default function SignUpForm() {
 
   //state to message text
   const [message, setMessage] = useState<string>("");
+
+  //state for disabling submit button
+  const [disableSubmit, setDisableSubmit] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (message) {
+      setDisableSubmit(true);
+    }
+  }, [message]);
 
   useEffect(() => {
     if (error) {
@@ -61,6 +73,10 @@ export default function SignUpForm() {
         .oneOf([Yup.ref("password")], "Passwords must match"),
     }),
     onSubmit: async (values) => {
+      // Disable the submit button
+      setDisableSubmit(true);
+
+      // Destructure the values
       const { name, surname, email, password } = values;
       try {
         const { data } = await createUser({
@@ -73,12 +89,16 @@ export default function SignUpForm() {
             },
           },
         });
-       
+
         if (data?.createUser.code === 200) {
-          
           const { token } = data.createUser.token;
           setToken(token);
           setMessage(data?.createUser.message);
+
+          //reset form
+          formik.resetForm();
+
+          //redirect to order page if there are items in the cart
           setTimeout(() => {
             if (cartItems.length > 0) {
               router.push("/order");
@@ -90,6 +110,8 @@ export default function SignUpForm() {
         }
       } catch (error) {
         console.log(error);
+      } finally {
+        setDisableSubmit(false);
       }
     },
   });
@@ -150,11 +172,18 @@ export default function SignUpForm() {
           />
 
           <div className='flex items-center justify-between'>
-            <input
+            <button
+              disabled={disableSubmit}
               type='submit'
               value='Sign Up'
-              className='bg-orange-400 hover:bg-orange-500 focus:ring-2 focus:outline-none focus:ring-orange-300 rounded-lg  px-4 py-2 text-center text-white w-full font-semibold mt-4 sm:mt-0'
-            />
+              className={
+                disableSubmit
+                  ? "bg-slate-100 text-slate-500 rounded-lg font-semibold px-4 py-2 text-center w-full mt-4 sm:mt-0"
+                  : "bg-orange-400 hover:bg-orange-500 focus:ring-2 focus:outline-none focus:ring-orange-300 rounded-lg  px-4 py-2 text-center text-white w-full font-semibold mt-4 sm:mt-0"
+              }
+            >
+              Sign Up
+            </button>
           </div>
           <div className='mt-4'>
             <p className='text-slate-600 text-xs font-semibold'>

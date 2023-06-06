@@ -13,7 +13,7 @@ export default function LandingPage() {
               initial={{ x: "100%", opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: "100%" }}
-              transition={{ duration: 1 }}
+              transition={{ duration: 1.5 }}
               className='text-orange-400 text-5xl font-black drop-shadow-xl '
             >
               Good food.
@@ -23,7 +23,7 @@ export default function LandingPage() {
               initial={{ x: "-100%", opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: "-100%" }}
-              transition={{ duration: 1 }}
+              transition={{ duration: 1.5 }}
               className='text-orange-400 text-5xl font-black drop-shadow-xl '
             >
               Good mood.
@@ -33,7 +33,7 @@ export default function LandingPage() {
               initial={{ y: "-100%", opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: "-100%" }}
-              transition={{ duration: 1 }}
+              transition={{ duration: 1.5 }}
               className='mt-4 text-xl text-slate-600 font-semibold drop-shadow-xl'
             >
               Free delivery on orders over 30€
@@ -43,7 +43,7 @@ export default function LandingPage() {
                 initial={{ y: "100%", opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: "100%" }}
-                transition={{ duration: 1 }}
+                transition={{ duration: 1.5 }}
                 className='mt-8 px-8 py-2 text-base border-orange-400 border-double border-4 font-bold  text-slate-600 w-[250px] hover:text-white hover:bg-orange-400 hover:border-white hover:border-double hover:shadow-2xl'
               >
                 ORDER NOW
@@ -59,7 +59,7 @@ export default function LandingPage() {
           Image by rawpixel.com on Freepik
         </a>
       </div>
-      {/* <Slider /> */}
+
       <LandingSection />
       <LandingSectionTwo />
     </>

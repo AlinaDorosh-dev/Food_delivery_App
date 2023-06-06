@@ -32,7 +32,11 @@ export default function Navbar() {
   const pathname = usePathname();
 
   useEffect(() => {
-    if (pathname !== "/" && !pathname.includes("/menu/")) {
+    if (
+      pathname !== "/" &&
+      pathname !== "/menu" &&
+      !pathname.includes("/menu/")
+    ) {
       setBgColor("bg-slate-600");
       setTextColor("text-orange-50");
     }

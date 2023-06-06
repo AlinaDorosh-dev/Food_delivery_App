@@ -1,3 +1,6 @@
+/**
+ * @fileoverview personal info component to display user's personal info from the user's profile in database.
+ */
 type Props = {
   firstName: string;
   lastName: string;

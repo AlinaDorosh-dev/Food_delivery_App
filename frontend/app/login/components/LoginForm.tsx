@@ -1,3 +1,6 @@
+/**
+ * @fileoverview LoginForm component for users authentication.
+ */
 "use client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -98,19 +101,19 @@ export default function LoginForm() {
             placeholder='********'
             formik={formik}
           />
-          <div className='flex items-center justify-between'>
+          <div className=''>
             <input
               type='submit'
               value='Login'
-              className='bg-orange-400 hover:bg-orange-500 focus:ring-2 focus:outline-none focus:ring-orange-300 rounded-lg  px-4 py-2 text-center text-white w-full font-semibold mt-4 sm:mt-0'
+              className='outline-double outline-orange-400 hover:text-orange-500 hover:drop-shadow-md cursor-pointer focus:ring-2 focus:outline-none focus:ring-orange-300 rounded-lg mx-auto px-4 py-2 text-center text-slate-600 w-full font-semibold mt-4 sm:mt-0'
             />
           </div>
-          <div className='mt-4'>
-            <p className='text-slate-600 text-xs font-semibold'>
+          <div className='mt-6'>
+            <p className='text-slate-600 text-xs font-semibold text-center'>
               Don´t have an account yet?
             </p>
             <Link href='/register'>
-              <p className='text-slate-600 hover:text-sky-800 text-sm font-semibold hover:underline decoration-orange-500'>
+              <p className='bg-orange-400 hover:bg-orange-500 focus:ring-2 focus:outline-none mx-auto focus:ring-orange-300 rounded-lg  px-4 py-2 text-center text-white w-full font-semibold mt-2 '>
                 Sign Up
               </p>
             </Link>

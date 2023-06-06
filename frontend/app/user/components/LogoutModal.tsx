@@ -1,3 +1,6 @@
+/**
+ * @fileoverview logout modal component to display when the user clicks on the logout button.
+ */
 import { FaRegSadTear } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { IoCloseSharp } from "react-icons/io5";

@@ -1,3 +1,6 @@
+/**
+ * @fileoverview Contact component. Contains contact information and links to social media.
+ */
 import { SiGmail } from "react-icons/si";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import Link from "next/link";

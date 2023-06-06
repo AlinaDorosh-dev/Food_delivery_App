@@ -1,6 +1,9 @@
+/**
+ * @fileoverview SingleItem component. Displays the details and extended info about a single menu item.
+ */
 import Image from "next/image";
 import AddToCart from "../../components/AddToCart";
-import BackToMenu from "./BackToMenu";
+import BackToMenu from "@/app/UI/BackToMenu";
 
 type Props = {
   foundItem: MenuItem;

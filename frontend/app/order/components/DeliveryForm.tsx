@@ -1,3 +1,7 @@
+/**
+ * @fileoverview this component is responsible for the delivery form
+ */
+
 "use client";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -5,14 +9,28 @@ import FormSection from "../../UI/FormSection";
 import { useQuery } from "@apollo/client";
 import { GET_USER_DATA } from "@/graphql/queries";
 import useAuth from "@/hooks/useAuth";
+import useCart from "@/hooks/useCart";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
 import { motion } from "framer-motion";
 import OrderConfirmationModal from "./OrderConfirmationModal";
 import Spinner from "@/app/UI/Spinner";
+import BackToMenu from "@/app/UI/BackToMenu";
 
 export default function DeliveryForm() {
+  const { cartItems } = useCart();
+
+  const [cartIsEmpty, setCartIsEmpty] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (cartItems.length === 0) {
+      setCartIsEmpty(true);
+    } else {
+      setCartIsEmpty(false);
+    }
+  }, [cartItems]);
+
   const [userData, setUserData] = useState<UserData>({
     firstName: "",
     lastName: "",
@@ -96,10 +114,23 @@ export default function DeliveryForm() {
 
   return (
     <>
-      {!loading && userAuthenticated ? (
+      {cartIsEmpty ? (
+        <>
+          <div className='h-[60vh] flex flex-col items-center justify-center text-slate-700 '>
+            <h1 className='text-2xl  mb-4'>Your cart is empty</h1>
+            <p className='mb-8'>Please add items to the cart before proceed</p>
+            <BackToMenu />
+          </div>
+        </>
+      ) : null}
+      {loading ? (
+        <div className='h-[60vh] flex items-center justify-center'>
+          <Spinner />
+        </div>
+      ) : null}
+      {!loading && !cartIsEmpty && userAuthenticated ? (
         <>
           <div className='w-[90%] max-w-2xl mx-auto'>
-            {loading ? <Spinner /> : null}
             <form
               className='bg-white shadow-md rounded px-8 pt-4 md:pt-6 pb-4 md:pb-8 mb-4'
               onSubmit={formik.handleSubmit}
@@ -151,7 +182,7 @@ export default function DeliveryForm() {
                 type={"checkbox"}
                 id={"saveDetails"}
                 name={"saveDetails"}
-                className='mr-2'
+                className='mr-2 sm:mr-3 sm:ml-3'
                 onChange={formik.handleChange}
               />
               <label htmlFor={"saveDetails"} className='text-slate-700 '>

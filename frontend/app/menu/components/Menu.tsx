@@ -1,3 +1,6 @@
+/**
+ * @fileoverview Menu component that displays all menu items.
+ */
 "use client";
 import MenuItem from "./MenuItem";
 import Spinner from "../../UI/Spinner";

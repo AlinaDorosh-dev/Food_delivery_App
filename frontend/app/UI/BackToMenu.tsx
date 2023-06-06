@@ -1,3 +1,6 @@
+/**
+ * @fileoverview back to menu button. Reusable component.
+ */
 "use client";
 import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
 import Link from "next/link";

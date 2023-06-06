@@ -1,3 +1,6 @@
+/**
+ * @fileoverview FormSection component to display a form section in the form.Reusable component
+ */
 import { useState } from "react";
 import InfoAlert from "./InfoAlert";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
@@ -53,10 +56,15 @@ export default function FormSection({
             onMouseDown={handleMouseDownPassword}
           >
             {showPassword ? (
-              <BsEyeSlash className='inline-block mr-2 ml-2 mb-1  text-slate-700 font-semibold'
-              size={20} />
+              <BsEyeSlash
+                className='inline-block mr-2 ml-2 mb-1  text-slate-700 font-semibold'
+                size={20}
+              />
             ) : (
-              <BsEye className='inline-block mr-2 ml-2 mb-1  text-slate-700 font-semibold' size={20}/>
+              <BsEye
+                className='inline-block mr-2 ml-2 mb-1  text-slate-700 font-semibold'
+                size={20}
+              />
             )}
           </button>
         </div>

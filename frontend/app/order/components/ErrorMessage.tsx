@@ -1,3 +1,6 @@
+/**
+ * @fileoverview ErrorMessage component to display an error message when an error occurs.
+ */
 import { FaRegSadTear } from "react-icons/fa";
 import { motion } from "framer-motion";
 import Link from "next/link";

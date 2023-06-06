@@ -1,3 +1,7 @@
+/**
+ *
+ * @fileoverview Spinner component to display a loading spinner.Reusable component.
+ */
 export default function Spinner() {
   return (
     <div>

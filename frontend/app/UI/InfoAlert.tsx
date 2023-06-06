@@ -1,3 +1,6 @@
+/**
+ * @fileoverview Alert reusable component to display an alert message.
+ */
 import { BsExclamationOctagonFill } from "react-icons/bs";
 
 type Props = {

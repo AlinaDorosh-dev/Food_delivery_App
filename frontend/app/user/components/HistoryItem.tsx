@@ -1,5 +1,8 @@
+/**
+ * @fileoverview history item component to show order history.
+ */
 "use client";
-import { type } from "os";
+
 import { useState } from "react";
 import {
   MdKeyboardDoubleArrowDown,
@@ -11,6 +14,8 @@ type Props = {
 };
 
 export default function HistoryItem({ order }: Props) {
+  
+  //state to toggle order details
   const [showDetails, setShowDetails] = useState(false);
 
   const { items: orderItems } = order || [];

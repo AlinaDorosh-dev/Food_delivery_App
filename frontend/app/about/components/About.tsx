@@ -1,3 +1,6 @@
+/**
+ * @fileoverview About component to show information about the app and link to the repository.
+ */
 import { FaCircle } from "react-icons/fa";
 import Link from "next/link";
 
@@ -39,8 +42,7 @@ export default function About() {
           </li>
           <li className='mb-6'>
             <FaCircle size={20} className='inline-block text-orange-600 mr-3' />
-            User room: Allow users to view their orders and update their
-            delivery details.
+            User room: Allow users to view their orders histoty, check their personal info and delivery details, as well as log out from the app              
           </li>
         </ul>
         <p className='text-base text-center font-semibold'>

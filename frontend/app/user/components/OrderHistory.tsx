@@ -1,3 +1,6 @@
+/**
+ * @fileoverview order history component to display the user's order history.
+ */
 import Spinner from "../../UI/Spinner";
 import Link from "next/link";
 import HistoryItem from "./HistoryItem";

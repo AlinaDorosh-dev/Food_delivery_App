@@ -1,3 +1,6 @@
+/**
+ * @fileoverview CartItem component to show a single item in the cart.
+ */
 "use client";
 import { useState } from "react";
 
@@ -10,6 +13,8 @@ type Props = {
 };
 
 function CartItem({ item }: Props) {
+  
+  //state toopen confirmation modal when user clicks on delete button
   const [openConfirm, setOpenConfirm] = useState<boolean>(false);
 
   return (
@@ -39,7 +44,7 @@ function CartItem({ item }: Props) {
           </div>
         </div>
         <button
-          className='px-2 py-1 absolute right-2 bottom-2'
+          className='px-2 py-1 absolute right-2 bottom-1/3 '
           onClick={() => setOpenConfirm(true)}
         >
           <IoTrashBin className='text-slate-600 text-2xl md:text-lg hover:text-orange-400' />

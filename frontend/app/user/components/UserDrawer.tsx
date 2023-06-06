@@ -1,3 +1,6 @@
+/**
+ * @fileoverview user drawer component to display user's drawer with tabs to user's profile, orders and logout.
+ *  */
 type Props = {
   selectedTab: number;
   setSelectedTab: React.Dispatch<React.SetStateAction<number>>;

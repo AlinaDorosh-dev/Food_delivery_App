@@ -18,10 +18,6 @@ body {
   background-image: url("../public/images/main-banner.jpg");
 }
 
-.custom-img-two {
-  background-image: url("../public/images/679.jpg");
-}
-
 .custom-img-three {
   background-image: url("../public/images/wooden-natural-floor-decoration-concept.jpg");
 }
@@ -52,13 +48,11 @@ body {
   background: #f9f9f9;
 }
 
-.swiper-slide-shadow-left,
-.swiper-slide-shadow-right {
-  display: none;
-}
-
-.slider-controler {
-  display: none;
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 @keyframes spinner-grow {

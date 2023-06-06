@@ -1,3 +1,6 @@
+/**@fileoverview
+ * ConfirmationModal component to show a confirmation modal when removing an item from the cart.
+ */
 import { IoCloseSharp } from "react-icons/io5";
 import {
   AiOutlineExclamationCircle,
@@ -12,6 +15,8 @@ type Props = {
 };
 export default function ConfirmationModal({ item, setOpenConfirm }: Props) {
   const { setCartItems } = useCart();
+
+  //State to show the removed confirmation
   const [removed, setRemoved] = useState<boolean>(false);
 
   const handleRemoveFromCart = () => {
