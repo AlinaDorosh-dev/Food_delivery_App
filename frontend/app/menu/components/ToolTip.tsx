@@ -1,7 +1,7 @@
 /**
  * @fileoverview ToolTip component to display a tooltip when clicking on button in AddToCart component.
  */
-import { useRef } from "react";
+import React,{ useRef } from "react";
 
 type Props = {
   children: React.ReactNode;
@@ -21,7 +21,6 @@ export default function ToolTip({
   return (
     <div
       ref={containerRef}
-      onMouseLeave={() => setShowToolTip(false)}
       className='relative'
     >
       {text ? (

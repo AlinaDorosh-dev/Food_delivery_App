@@ -4,6 +4,7 @@
 import { FaRegSadTear } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { IoCloseSharp } from "react-icons/io5";
+import React from "react";
 
 type Props = {
   setConfirmLogout: React.Dispatch<React.SetStateAction<boolean>>;

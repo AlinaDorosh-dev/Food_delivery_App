@@ -6,7 +6,7 @@ import {
   AiOutlineExclamationCircle,
   AiOutlineCheckCircle,
 } from "react-icons/ai";
-import { useState } from "react";
+import React, { useState } from "react";
 import useCart from "@/hooks/useCart";
 
 type Props = {
@@ -15,6 +15,7 @@ type Props = {
 };
 export default function ConfirmationModal({ item, setOpenConfirm }: Props) {
   const { setCartItems } = useCart();
+  const { id, name } = item.menuItem;
 
   //State to show the removed confirmation
   const [removed, setRemoved] = useState<boolean>(false);
@@ -25,7 +26,7 @@ export default function ConfirmationModal({ item, setOpenConfirm }: Props) {
     setTimeout(() => {
       setOpenConfirm(false);
       setCartItems((prev) =>
-        prev.filter((cartItem) => cartItem.menuItem?.id !== item.menuItem?.id)
+        prev.filter((cartItem) => cartItem.menuItem?.id !== id)
       );
     }, 1000);
   };
@@ -51,8 +52,7 @@ export default function ConfirmationModal({ item, setOpenConfirm }: Props) {
                   <AiOutlineExclamationCircle className='text-orange-400 w-16 h-16 mx-auto flex-shrink-0' />
                   <h3 className='mb-5 text-lg lg:text-base font-normal text-gray-500'>
                     Are you sure you want to delete this delicious{" "}
-                    <span className='font-semibold'>{item.menuItem?.name}</span>{" "}
-                    ?
+                    <span className='font-semibold'>{name}</span> ?
                   </h3>
                   <button
                     data-modal-hide='popup-modal'
@@ -78,8 +78,8 @@ export default function ConfirmationModal({ item, setOpenConfirm }: Props) {
               <div className='p-6 text-center'>
                 <AiOutlineCheckCircle className='text-green-400 w-16 h-16 mx-auto flex-shrink-0' />
                 <h3 className='mb-5 text-lg lg:text-base font-normal text-gray-500'>
-                  <span className='font-semibold'>{item.menuItem?.name}</span>{" "}
-                  has been removed from your cart.
+                  <span className='font-semibold'>{name}</span> has been removed
+                  from your cart.
                 </h3>
               </div>
             )}

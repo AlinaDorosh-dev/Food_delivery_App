@@ -5,7 +5,7 @@
   "name": "Margherita Pizza",
   "price": 10.99,
   "category": "Pizza",
-  "image": "https://images.unsplash.com/photo-1595708684082-a173bb3a06c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1164&q=80",
+  "image": "https://images.unsplash.com/photo-1595708684082-a173bb3a06c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=90",
   "description": "Fresh mozzarella, tomato sauce, basil",
   "ingredients": "Flour, Water, Salt, Yeast, Tomatoes, Fresh Mozzarella Cheese, Basil",
   "extendedDescription": "Timeless classic in the world of Italian cuisine. Named after Queen Margherita of Italy, this pizza is beloved for its simplicity, yet remarkable flavors. With its minimalistic yet harmonious combination of ingredients, the Margarita pizza exemplifies the essence of traditional Neapolitan-style pizza.The Margarita pizza emerges from the oven with a golden crust, bubbling cheese, and vibrant toppings. Each bite offers a harmonious blend of flavors—the tangy sweetness of the tomato sauce, the creamy richness of the melted cheese, the aromatic freshness of the basil, and the delightful chewiness of the crust."
@@ -16,7 +16,7 @@
   "name": "Spaghetti Bolognese",
   "price": 12.99,
   "category": "Pasta",
-  "image": "https://images.unsplash.com/photo-1570549986390-6bd150ac3515?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=928&q=80",
+  "image": "https://images.unsplash.com/photo-1570549986390-6bd150ac3515?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=90",
   "description": "Classic meat sauce, spaghetti, parmesan cheese",
   "ingredients": "Spaghetti, Ground beef, Tomatoes, Onion, Garlic, Olive oil, Parmesan cheese",
   "extendedDescription": "Beloved Italian pasta dish that has gained popularity worldwide. Originating from the city of Bologna in northern Italy, this classic recipe showcases the heartiness and rich flavors of Italian cuisine.A plate of Spaghetti Bolognese presents a tantalizing combination of flavors and textures. The rich and savory meat sauce clings to the perfectly cooked pasta, creating a satisfying and comforting meal. The depth of flavors, developed through slow cooking and careful seasoning, makes every bite a delightful experience."
@@ -27,7 +27,7 @@
   "name": "Chicken Caesar Salad",
   "price": 8.99,
   "category": "Salad",
-  "image": "https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80",
+  "image": "https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=90",
   "description": "Grilled chicken breast, romaine lettuce, croutons, Caesar dressing",
   "ingredients": "Chicken breast, Romaine lettuce, Croutons, Caesar dressing, Parmesan cheese, Lemon juice",
   "extendedDescription": "Classic and beloved dish that combines crisp romaine lettuce, tender grilled chicken, flavorful dressing, and a sprinkling of Parmesan cheese. This salad has become a staple in many restaurants and homes, offering a refreshing and satisfying meal option.The Chicken Caesar Salad presents a harmonious combination of flavors and textures. The crisp and refreshing lettuce, tender grilled chicken, creamy dressing, and crunchy croutons create a well-balanced and satisfying meal. Each bite offers a delightful blend of tanginess, creaminess, and crunchiness, making it a favorite choice for salad enthusiasts."
@@ -38,7 +38,7 @@
   "name": "Mushroom Risotto",
   "price": 12.99,
   "category": "Rice",
-  "image": "https://images.unsplash.com/photo-1637361874063-e5e415d7bcf7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+  "image": "https://images.unsplash.com/photo-1637361874063-e5e415d7bcf7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=90",
   "description": "Creamy Arborio rice, mushrooms, parmesan cheese",
   "ingredients": "Arborio rice, Mushrooms, Butter, Onion, Garlic, Chicken broth, Parmesan cheese",
   "extendedDescription": "A Creamy and Savory Italian Delight. This beloved dish showcases the perfect balance of flavors and textures. Arborio rice is cooked slowly with a medley of mushrooms, onions, garlic, and white wine, absorbing the rich vegetable broth. As the rice simmers, it releases its starch, creating a creamy consistency. The earthy and meaty mushrooms add depth and umami, while a touch of Parmesan cheese and fresh herbs provide a burst of flavor. With its velvety texture and delightful combination of ingredients, Mushroom Risotto is a comforting and satisfying dish that never fails to impress."
@@ -49,7 +49,7 @@
   "name": "Shrimp Risotto",
   "price": 15.99,
   "category": "Rice",
-  "image": "https://images.unsplash.com/photo-1655633593521-d529c5e7e037?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+  "image": "https://images.unsplash.com/photo-1655633593521-d529c5e7e037?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=90",
   "description": "Creamy Arborio rice, shrimps, parmesan cheese",
   "ingredients": "Arborio rice, Shrimps, Butter, Onion, Garlic, Parmesan cheese",
   "extendedDescription": "A Luxurious Seafood Delight. This exquisite dish combines plump and succulent shrimp with creamy Arborio rice cooked to perfection. The rice absorbs a delicate blend of flavors from onions, garlic, white wine, and seafood broth, resulting in a velvety and flavorful risotto. The tender shrimp add a touch of sweetness and a hint of the sea, perfectly complementing the richness of the dish. Finished with a sprinkle of Parmesan cheese and a squeeze of lemon juice, Shrimp Risotto is a luxurious and satisfying meal that showcases the elegance of seafood in a comforting and creamy rice dish."
@@ -60,7 +60,7 @@
   "name": "Vegetable Rice",
   "price": 7.99,
   "category": "Rice",
-  "image": "https://images.unsplash.com/photo-1595940573217-d78cb8cc60e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80",
+  "image": "https://images.unsplash.com/photo-1595940573217-d78cb8cc60e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=90",
   "description": "Creamy Arborio rice, carror, peas ",
   "ingredients": "Arborio rice, Butter, Onion, Garlic, Carrot, Celery, Tomato",
   "extendedDescription": " A Wholesome and Flavorful Medley. This vibrant dish brings together a colorful assortment of vegetables with fragrant rice, resulting in a satisfying and nutritious meal. The rice is cooked to perfection, absorbing the flavors of sautéed onions, garlic, and aromatic spices. A variety of vegetables such as carrots, peas, bell peppers, and corn are added, providing a burst of freshness and texture. The dish is further enhanced with the addition of herbs and seasonings, creating a harmonious blend of flavors. Vegetable Rice is a versatile and wholesome option that can be enjoyed on its own or as a delicious side dish, making it a go-to choice for those seeking a nourishing and flavorful meal."
@@ -71,7 +71,7 @@
   "name": "Pepperoni Pizza",
   "price": 12.99,
   "category": "Pizza",
-  "image": "https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1176&q=80",
+  "image": "https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=90",
   "description": "Fresh mozzarella, tomato sauce, pepperoni",
   "ingredients": "Flour, Water, Salt, Yeast, Tomatoes, Fresh Mozzarella Cheese, Basil, pepperoni",
   "extendedDescription": "A Classic and Irresistible Delight. This iconic pizza features a thin, crispy crust topped with zesty tomato sauce, gooey mozzarella cheese, and a generous amount of savory pepperoni slices. The crust is carefully crafted to achieve the perfect balance of chewiness and crunch, providing a delightful base for the flavorful toppings. The tangy tomato sauce adds a burst of flavor, while the melted mozzarella cheese creates a creamy and gooey texture. The star of the show, the pepperoni, delivers a bold and spicy kick that satisfies even the most discerning taste buds. With its combination of flavors and textures, Pepperoni Pizza has become a timeless favorite for pizza lovers worldwide, making it the perfect choice for a delicious and comforting meal."
@@ -82,7 +82,7 @@
   "name": "Tuna Pizza",
   "price": 11.99,
   "category": "Pizza",
-  "image": "https://images.unsplash.com/photo-1620374645310-f9d97e733268?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+  "image": "https://images.unsplash.com/photo-1620374645310-f9d97e733268?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=90",
   "description": "Fresh mozzarella, tomato sauce, tuna",
   "ingredients": "Flour, Water, Salt, Yeast, Tomatoes, Fresh Mozzarella Cheese, Basil, tuna",
   "extendedDescription": "A Delightful Fusion of Flavors. This unique pizza creation combines the ocean's bounty with classic pizza elements, resulting in a delicious and unexpected culinary experience. The thin crust is adorned with a tangy tomato sauce, melted mozzarella cheese, and a generous amount of flaky tuna chunks. The tuna brings a delicate and savory taste, complemented by the savory tomato sauce and the gooey melted cheese. The addition of fresh herbs and a sprinkle of aromatic spices enhances the overall flavor profile. The result is a harmonious blend of textures and tastes, where the crispness of the crust contrasts with the tender tuna. Tuna Pizza offers a delightful twist on traditional pizza, making it a standout choice for seafood enthusiasts and those looking to explore new culinary horizons."
@@ -93,7 +93,7 @@
   "name": "Seafood pasta",
   "price": 19.99,
   "category": "Pasta",
-  "image": "https://images.unsplash.com/photo-1623345541450-9bf0cbb6faab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+  "image": "https://images.unsplash.com/photo-1623345541450-9bf0cbb6faab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=90",
   "description": "Sauce, spaghetti, shrimps, tomatoe cherry",
   "ingredients": "Spaghetti, Shrimps, Tomatoes, Onion, Garlic, Olive oil",
   "extendedDescription": "A Delectable Seafood Feast. This mouthwatering dish combines the best of the ocean with perfectly cooked pasta, creating a delightful symphony of flavors and textures. A medley of fresh seafood such as shrimp, mussels, clams, and calamari takes center stage, imparting a rich and briny taste. The pasta, cooked al dente, acts as a perfect canvas, allowing the flavors to shine. A fragrant sauce made with garlic, olive oil, white wine, and tomatoes adds a tangy and aromatic dimension. The dish is elevated with the addition of fresh herbs like basil and parsley, imparting a burst of freshness. Each forkful offers a delightful combination of tender seafood, al dente pasta, and the tantalizing sauce. Seafood Pasta is a luxurious and satisfying choice that showcases the bounty of the sea in a comforting and flavorful manner."
@@ -104,7 +104,7 @@
   "name": "Lasagna",
   "price": 11.99,
   "category": "Pasta",
-  "image": "https://images.unsplash.com/photo-1574894709920-11b28e7367e3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
+  "image": "https://images.unsplash.com/photo-1574894709920-11b28e7367e3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=90",
   "description": "Sauce, beef, parmesan, lasagna noodles",
   "ingredients": "Lasagna noodles, Italian sausage, lean ground beef, Tomatoes, Onion, Garlic, Olive oil",
   "extendedDescription": " Layers of Italian Comfort. This beloved Italian dish is a true comfort food classic. It features layers of tender lasagna noodles, rich tomato sauce, creamy ricotta cheese, and a savory meat filling. Each layer is carefully assembled, creating a harmonious combination of flavors and textures. The tomato sauce, simmered with aromatic herbs and spices, infuses the dish with a robust and tangy taste. The ricotta cheese adds a creamy and indulgent element, while the meat filling, often made with ground beef or sausage, provides a hearty and satisfying component. The layers of noodles, sauce, cheese, and meat meld together during baking, creating a mouthwatering masterpiece. Whether enjoyed as a cozy family dinner or a crowd-pleasing party dish, Lasagna is a timeless favorite that never fails to warm the heart and delight the palate."
@@ -115,7 +115,7 @@
   "name": "Shrimp Caesar Salad",
   "price": 9.99,
   "category": "Salad",
-  "image": "https://images.unsplash.com/photo-1543339308-43e59d6b73a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+  "image": "https://images.unsplash.com/photo-1543339308-43e59d6b73a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=90",
   "description": "Shrimps, romaine lettuce, croutons, Caesar dressing",
   "ingredients": "Shrimps, Romaine lettuce, Croutons, Caesar dressing, Parmesan cheese, Lemon juice",
   "extendedDescription": "A Refreshing Seafood Twist. This delightful salad takes the classic Caesar to new heights with the addition of succulent shrimp. Crisp romaine lettuce serves as the base, providing a refreshing crunch. The shrimp, cooked to perfection, adds a delicate and savory note, perfectly complementing the tangy Caesar dressing. Generous shavings of Parmesan cheese lend a rich and nutty flavor, while homemade garlic croutons contribute a satisfying crunch. The salad is expertly tossed, ensuring that every bite is coated in the flavorful dressing. With its combination of vibrant greens, tender shrimp, and zesty dressing, Shrimp Caesar Salad is a refreshing and satisfying option that brings a taste of the sea to the classic salad experience."
@@ -126,7 +126,7 @@
   "name": "Tuna Salad",
   "price": 9.99,
   "category": "Salad",
-  "image": "https://images.unsplash.com/photo-1604497181015-76590d828b75?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80",
+  "image": "https://images.unsplash.com/photo-1604497181015-76590d828b75?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=90",
   "description": "Tuna, romaine lettuce, croutons, Caesar dressing",
   "ingredients": "Tuna, Romaine lettuce, Croutons, Caesar dressing, Parmesan cheese, Lemon juice",
   "extendedDescription": "A Refreshing and Protein-Packed Delight. This vibrant salad showcases the versatility of tuna in a light and satisfying dish. Flaky tuna, either fresh or canned, takes center stage, offering a lean source of protein. The salad base consists of crisp lettuce leaves, accompanied by a colorful medley of fresh vegetables such as tomatoes, cucumbers, and bell peppers. These ingredients provide a refreshing crunch and a burst of vibrant flavors. The tuna is tossed in a tangy dressing, typically a combination of lemon juice, olive oil, and herbs, adding a zesty and aromatic touch. Optional additions like boiled eggs, olives, or avocado slices can further enhance the salad's texture and taste. Whether enjoyed as a filling lunch or a nutritious side dish, Tuna Salad is a go-to option for those seeking a light, flavorful, and protein-rich meal."
@@ -137,7 +137,7 @@
   "name": "Tiramisu",
   "price": 4.99,
   "category": "Desert",
-  "image": "https://images.unsplash.com/photo-1663329872246-55cda1f8df62?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+  "image": "https://images.unsplash.com/photo-1663329872246-55cda1f8df62?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=90",
   "description": "Moscarpone cheese,buisquits",
   "ingredients": "Sugar, eggs, moscarpone, buisquits",
   "extendedDescription": " An Irresistible Italian Dessert. This decadent dessert is a true masterpiece of flavors and textures. Layers of delicate ladyfinger biscuits are soaked in a rich and aromatic combination of coffee and liqueur, typically rum or Marsala wine. The biscuits are then layered with a velvety mixture of mascarpone cheese, eggs, and sugar, creating a creamy and indulgent filling. The dessert is dusted with cocoa powder, which adds a hint of bitterness and contrasts beautifully with the sweetness of the filling. The result is a heavenly dessert that balances the flavors of coffee, cream, and cocoa in perfect harmony. Each spoonful offers a luscious combination of soft biscuits, creamy mascarpone, and a delightful coffee-infused essence. Tiramisu is a timeless treat that has captured the hearts of dessert lovers worldwide, providing a perfect ending to any meal or a delightful indulgence on its own."
@@ -148,7 +148,7 @@
   "name": "Cheese cake",
   "price": 5.99,
   "category": "Desert",
-  "image": "https://images.unsplash.com/photo-1567327613485-fbc7bf196198?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+  "image": "https://images.unsplash.com/photo-1567327613485-fbc7bf196198?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=90",
   "description": "Cream cheese, blueberry",
   "ingredients": "Sugar, eggs, cream cheese, blueberry, buisquits",
   "extendedDescription": " A Creamy and Heavenly Dessert Delight. This beloved dessert is a symphony of smoothness and richness that captivates the senses. The base is typically made from a buttery graham cracker crust that provides a satisfying crunch. The star of the show is the creamy and velvety filling, which is crafted from a blend of cream cheese, sugar, and eggs. The addition of vanilla extract or other flavorings adds a delightful aroma and depth of taste. The cheesecake is baked to perfection, resulting in a delicate yet dense texture that melts in your mouth. To enhance the indulgence, various toppings and garnishes can be added, such as fresh fruits, rich chocolate sauce, or tangy fruit compotes. Each bite of cheesecake offers a heavenly experience, combining the lusciousness of the filling with the delectable crust. Whether enjoyed plain or adorned with flavorful additions, cheesecake is a timeless dessert that brings joy and satisfaction to any occasion."
@@ -159,7 +159,7 @@
   "name": "Chocolate cake",
   "price": 5.99,
   "category": "Desert",
-  "image": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+  "image": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=90",
   "description": "Delicious chocholate cake",
   "ingredients": "Sugar, eggs, cacao",
   "extendedDescription": " A Divine Indulgence for Chocolate Lovers. This delectable dessert is a chocolate lover's dream come true. Moist and tender chocolate cake layers are generously filled and frosted with a luscious chocolate ganache or creamy chocolate buttercream frosting. The cake itself is made with rich cocoa powder or melted chocolate, which infuses every bite with a deep, velvety chocolate flavor. Each layer is perfectly balanced, providing a heavenly combination of moistness and richness. The frosting, smooth and decadent, adds an extra layer of chocolatey bliss. Optional additions such as chocolate shavings, sprinkles, or fresh berries can further elevate the cake's visual appeal and taste. Whether enjoyed as a celebratory centerpiece or as a sweet treat to satisfy cravings, Chocolate Cake is an irresistible indulgence that brings pure joy to chocolate enthusiasts of all ages."
@@ -170,7 +170,7 @@
   "name": "Mushroom pasta",
   "price": 13.99,
   "category": "Pasta",
-  "image": "https://images.unsplash.com/photo-1585672840563-f2af2ced55c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+  "image": "https://images.unsplash.com/photo-1585672840563-f2af2ced55c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=90",
   "description": "Sauce, pasta, mushrooms, tomatoe cherry",
   "ingredients": "Pasta, Mushrooms, Tomatoes, Onion, Garlic, Olive oil",
   "extendedDescription": "A Savory Delight for Mushroom Lovers. This tantalizing pasta dish showcases the earthy and rich flavors of mushrooms in a satisfying and comforting way. A medley of fresh mushrooms, such as cremini, shiitake, or portobello, is sautéed to perfection, releasing their aromatic essence. The mushrooms are then combined with al dente pasta, creating a perfect marriage of textures. A garlic-infused olive oil or creamy mushroom sauce coats the pasta, enhancing its flavor profile. Fresh herbs like thyme or parsley add a pop of freshness, while a sprinkle of grated Parmesan cheese brings a touch of saltiness and umami. Each forkful offers a delightful combination of tender pasta, robust mushrooms, and a burst of savory flavors. Mushroom Pasta is a comforting and satisfying choice that celebrates the natural goodness of mushrooms and transforms a simple pasta dish into a culinary masterpiece."

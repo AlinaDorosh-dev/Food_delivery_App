@@ -17,12 +17,15 @@ export default function AddToCart({ item }: Props) {
   const [showToolTip, setShowToolTip] = useState<boolean>(false);
   const [toolTipText, setToolTipText] = useState<string>("");
 
+  const {id, name, price } = item;
+
   useEffect(() => {
     if (showToolTip) {
       //Reset quantity to 1
       const timer = setTimeout(() => {
         setQuantity(1);
-      }, 1500);
+        setShowToolTip(false);
+      }, 2000);
       return () => clearTimeout(timer);
     }
   }, [showToolTip]);
@@ -36,7 +39,7 @@ export default function AddToCart({ item }: Props) {
     }
     //Check if item is already in cart
     const itemInCart = cartItems.find(
-      (cartItem) => cartItem.menuItem.id === item.id
+      (cartItem) => cartItem.menuItem.id === id
     );
 
     //If it is, update the quantity
@@ -48,26 +51,27 @@ export default function AddToCart({ item }: Props) {
         return;
       }
       const updatedCartItems = cartItems.map((cartItem) => {
-        if (cartItem.menuItem.id === item.id) {
+        if (cartItem.menuItem.id === id) {
           return { ...cartItem, quantity: cartItem.quantity + quantity };
         }
         return cartItem;
       });
       setCartItems(updatedCartItems);
       setShowToolTip(true);
-      setToolTipText(`${quantity} ${item.name} added to cart`);
+      setToolTipText(`${quantity} ${name} added to cart`);
       return;
     } else {
       //If not, add it to the cart
       setCartItems((prev) => [
         ...prev,
-        { menuItem: item, quantity: quantity, price: item.price },
+        { menuItem: item, quantity, price },
       ]);
       setShowToolTip(true);
-      setToolTipText(`${quantity} ${item.name} added to cart`);
+      setToolTipText(`${quantity} ${name} added to cart`);
     }
   };
   return (
+    
     <div className='flex justify-between items-center mt-4'>
       <div className='flex justify-between items-center border border-gray-300 rounded-lg px-2 py-1 mr-2'>
         <button

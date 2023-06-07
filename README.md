@@ -9,7 +9,7 @@ This is a food delivery web-app designed as a personal project to enhance my pra
 The frontend of the app is developed using
 [NextJS](https://nextjs.org/) version 13.4,
 [Typescript](https://www.typescriptlang.org/),
-[Tailwind CSS](https://tailwindcss.com/) for styling, [Framer motion](https://www.framer.com/motion/) for animations and Apollo Client for efficient data fetching using [GraphQL](https://graphql.org/).
+[Tailwind CSS](https://tailwindcss.com/) for styling, [Framer motion](https://www.framer.com/motion/) for animations and Apollo Client for efficient data fetching using [GraphQL](https://graphql.org/)and [Formik](https://formik.org/) for streamlined form management.
 
 ### **Key Features:**
 
@@ -43,6 +43,8 @@ The frontend of the app is developed using
 
 :rocket: Apollo Client: Provides a powerful and intuitive GraphQL client that efficiently manages data fetching, caching, and state management in the frontend, resulting in a seamless and responsive user interface.
 
+:rocket: Formik: Simplifies form management by handling form state, validation, and submission logic. It streamlines the development process, improves form usability, and provides robust error handling.
+
 By developing this food delivery app with this stack, I not only gained practical experience in GraphQL API development but also leveraged the advantages of each technology to deliver a high-performance, feature-rich, and user-friendly application for food enthusiasts.
 
 ## **Installation** :building_construction:	
@@ -60,7 +62,7 @@ DB_URL=[your mongodb string (ex.mongodb://localhost:27017/FOODAPP or scrting con
 SECRET=[your token secret (can be generated using node crypto module)]
 ```
 
-You can find mocked menu collection inside the folder `mocked_menu` in JSON format
+:pizza: You can find mocked *menuitems* collection inside the folder `mocked_menu` in JSON format
 
 run the following command and the Apollo server will be listening on the PORT `4000`:
 ```bash

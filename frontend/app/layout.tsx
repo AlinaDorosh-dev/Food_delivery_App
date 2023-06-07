@@ -7,6 +7,8 @@ import {
   AuthContextProvider,
   MenuContextProvider,
 } from "@/context/index";
+import { Metadata } from "next";
+import React from "react";
 
 const raleway = Raleway({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -14,10 +16,9 @@ const raleway = Raleway({
   display: "swap",
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Food Delivery App",
   description: "A food delivery app built with Next.js and Tailwind CSS",
-  author: "Alina Dorosh",
 };
 
 export default function RootLayout({

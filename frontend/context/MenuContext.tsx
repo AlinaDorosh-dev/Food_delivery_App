@@ -2,7 +2,7 @@
 import { createContext, useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_MENU } from "@/graphql/queries";
-import { boolean } from "yup";
+
 
 export const MenuContext = createContext<MenuContext>({
   menuItems: [],

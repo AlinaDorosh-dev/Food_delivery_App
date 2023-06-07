@@ -2,7 +2,7 @@
  * @fileoverview user room component to display user's personal info and order history.
  */
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import useAuth from "@/hooks/useAuth";
 import { useQuery } from "@apollo/client";
 import { GET_USER_DATA, GET_ORDERS_HISTORY } from "@/graphql/queries";
@@ -14,7 +14,7 @@ import OrderHistory from "./OrderHistory";
 import LogoutModal from "./LogoutModal";
 
 export default function UserRoom() {
-  const { token, setToken } = useAuth();
+  const { setToken } = useAuth();
   const router = useRouter();
 
   const [confirmLogout, setConfirmLogout] = useState<boolean>(false);
@@ -25,13 +25,6 @@ export default function UserRoom() {
     setConfirmLogout(false);
     router.push("/");
   };
-
-  //Check if user is logged in
-  //   useEffect(() => {
-  //     if (!token) {
-  //       router.push("/login");
-  //     }
-  //   }, [token]);
 
   const { data, loading } = useQuery(GET_USER_DATA);
   const { firstName, lastName, phone, savedDeliveryAddress } =

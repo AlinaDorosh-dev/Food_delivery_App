@@ -30,8 +30,8 @@ export default function MenuItem({ item }: Props) {
           height={400}
           className='rounded-t-lg object-cover w-full h-64'
         />
-        <div className='py-6 px-8 text-slate-800 leading-10 text-justify'>
-          <div className='min-h-[330px]'>
+        <div className='py-6 px-8 text-slate-800 leading-8 text-justify'>
+          <div className='min-h-[300px]'>
             <h1 className='text-base text-orange-500 font-semibold text-center'>
               {name}
             </h1>
@@ -46,7 +46,7 @@ export default function MenuItem({ item }: Props) {
               {category}
             </p>
             <div className='flex items-center justify-between mb-8'>
-              <div className='flex items-center mt-2.5 mb-5'>
+              <div className='flex items-center mt-3 mb-5'>
                 <Link
                   href={`/menu/${id}`}
                   className='text-orange-400 font-semibold text-sm hover:text-orange-500'

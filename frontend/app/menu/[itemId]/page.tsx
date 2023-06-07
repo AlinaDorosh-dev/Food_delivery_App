@@ -52,7 +52,7 @@ export default async function SingleItemPage({
 
   const { itemId } = params;
   const foundItem = menuItems.find((item: MenuItem) => item.id === itemId);
-  console.log(foundItem);
+
   if (!foundItem) {
     return notFound();
   }

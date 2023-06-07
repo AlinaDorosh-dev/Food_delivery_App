@@ -6,7 +6,6 @@ import mongoose from "mongoose";
 const resolvers = {
   Query: {
     getCustomerData: async (_, {}, ctx) => {
-      console.log("From resolver", ctx.user);
       try {
         const userId = ctx.user?.id;
 
@@ -197,7 +196,9 @@ const resolvers = {
       );
 
       const delivery = calculatedTotalOrder > 30 ? 0 : 3.5;
-      const calculatedTotalPrice = calculatedTotalOrder + delivery;
+      const calculatedTotalPrice = Number(
+        (calculatedTotalOrder + delivery).toFixed(2)
+      );
 
       if (calculatedTotalPrice !== totalPrice) {
         throw new Error("Invalid total price");

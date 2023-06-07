@@ -19,7 +19,6 @@ export default function OrderHistory({
   loadingOrders,
 }: Props) {
   const { orders } = getOrdersHistory || [];
-  console.log(orders);
 
   return (
     <div>

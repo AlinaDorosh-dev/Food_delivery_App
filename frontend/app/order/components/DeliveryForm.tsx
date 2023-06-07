@@ -49,7 +49,6 @@ export default function DeliveryForm() {
 
   //Check if user is logged in
   useEffect(() => {
-    console.log("token", token);
     if (token) {
       setUserAuthenticated(true);
     }

@@ -14,7 +14,7 @@ type Props = {
 
 function CartItem({ item }: Props) {
   
-  //state toopen confirmation modal when user clicks on delete button
+  //state to open confirmation modal when user clicks on delete button
   const [openConfirm, setOpenConfirm] = useState<boolean>(false);
 
   return (

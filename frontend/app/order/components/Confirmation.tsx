@@ -1,6 +1,6 @@
 /**
  * @fileoverview Confirmation component. It shows the order summary and allows to confirm the order.
- * 
+ *
  */
 
 import useCart from "@/hooks/useCart";
@@ -9,7 +9,7 @@ import { useQuery, useMutation } from "@apollo/client";
 import { motion } from "framer-motion";
 import { CREATE_ORDER, SAVE_DELIVERY_DETAILS } from "@/graphql/mutations";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 
 type Props = {
   formValues: DeliveryFormValues;
@@ -72,15 +72,16 @@ export default function Confirmation({
               zipCode: zip,
               phone: phone,
             },
-            items: cartItems.map((item) => ({
-              menuItem: item.menuItem.id,
-              quantity: item.quantity,
-              price: item.menuItem.price,
+            items: cartItems.map(({ menuItem, quantity }) => ({
+              menuItem: menuItem.id,
+              quantity,
+              price: menuItem.price,
             })),
             totalPrice: Number(totalToPay),
           },
         },
       });
+
       //If user wants to save delivery details, save them to DB
       if (saveDetails) {
         await saveDeliveryDetails({
@@ -95,23 +96,20 @@ export default function Confirmation({
           },
         });
       }
-      if (newOrder) {
+      if (newOrder.data.createOrder) {
         setOrderCreated(true);
       }
       //Set timeout to close modal
       setTimeout(() => {
         //Redirect to menu page
         router.push("/menu");
-        setOpenConfirmation(false);
-      }, 2800);
 
-      //Set timeout to clear cart and local storage
-      setTimeout(() => {
+        setOpenConfirmation(false);
         //Clear cart
         setCartItems([]);
         //Clear local storage
         localStorage.removeItem("cart");
-      }, 3100);
+      }, 2500);
     } catch (orderError) {
       console.log("orderError", orderError);
     }
@@ -129,14 +127,14 @@ export default function Confirmation({
         </h3>
         <div className='flex flex-col items-center justify-center text-slate-700  text-sm mb-4 w-full'>
           <div className='mb-2 border-b-4 border-gray-400 w-[95%]'>
-            {cartItems.map((item) => (
+            {cartItems.map(({ menuItem, quantity, price }) => (
               <div
-                key={item.menuItem.id}
+                key={menuItem.id}
                 className='flex justify-between mb-1  pb-1 w-full mx-auto'
               >
-                <p>{item.menuItem.name}</p>
+                <p>{menuItem.name}</p>
                 <p>
-                  {item.quantity}x{item.price} €
+                  {quantity}x{price} €
                 </p>
               </div>
             ))}
@@ -169,7 +167,7 @@ export default function Confirmation({
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.95 }}
             data-modal-hide='popup-modal'
-            type='button'
+            type='submit'
             className='bg-orange-400 hover:bg-orange-500 w-1/3 rounded-lg  px-4 py-2 text-center text-white  font-semibold mt-2 md:mt-6 mb-2 md:mb-4'
             onClick={() => {
               handleConfirmOrder();

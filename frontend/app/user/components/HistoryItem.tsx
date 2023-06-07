@@ -14,16 +14,13 @@ type Props = {
 };
 
 export default function HistoryItem({ order }: Props) {
-  
   //state to toggle order details
   const [showDetails, setShowDetails] = useState(false);
 
-  const { items: orderItems } = order || [];
+  const { items: orderItems, id, totalPrice, createdAt, status } = order || [];
 
-  const toggleDetails = () => {
-    setShowDetails(!showDetails);
-  };
-
+  const toggleDetails = () => setShowDetails(!showDetails);
+  
   const formatDate = (date: string) => {
     const milliseconds = parseInt(date, 10);
     const retrieveDate = new Date(milliseconds);
@@ -40,13 +37,13 @@ export default function HistoryItem({ order }: Props) {
   return (
     <>
       <div
-        key={order.id}
+        key={id}
         className='flex items-center justify-between w-full sm:w-[90%] md:w-[80%] max-w-6xl border-b-4 border-gray-200 p-4 my-4 lg:my-6 text-slate-700 text-sm font-medium'
       >
-        <p>{formatDate(order.createdAt)}</p>
-        <p className='ml-4'>{order.totalPrice} €</p>
+        <p>{formatDate(createdAt)}</p>
+        <p className='ml-4'>{totalPrice} €</p>
         <p className='ml-4'>
-          {order.status === "pending" ? "In preparation" : "Delivered"}
+          {status === "pending" ? "In preparation" : "Delivered"}
         </p>
         {showDetails ? (
           <MdKeyboardDoubleArrowUp
@@ -64,19 +61,19 @@ export default function HistoryItem({ order }: Props) {
       </div>
       {showDetails ? (
         <div className='flex flex-col items-center justify-center w-full'>
-          {orderItems.map((item) => (
+          {orderItems.map(({ menuItem, quantity }) => (
             <div
-              key={item.menuItem.name}
+              key={menuItem.name}
               className='flex items-center justify-between w-full sm:w-[90%] px-4 md:w-[80%] max-w-6xl my-2 lg:my-4 text-slate-700 text-xs sm:text-sm font-medium'
             >
               <p className='font-medium text-orange-600 w-[40%]'>
-                {item.menuItem.name}
+                {menuItem.name}
               </p>
 
               <p>
-                {item.quantity} x {item.menuItem.price} €
+                {quantity} x {menuItem.price} €
               </p>
-              <p>{item.quantity * item.menuItem.price} €</p>
+              <p>{quantity * menuItem.price} €</p>
             </div>
           ))}
         </div>

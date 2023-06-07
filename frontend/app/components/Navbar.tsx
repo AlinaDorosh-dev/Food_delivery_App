@@ -14,7 +14,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [bgColor, setBgColor] = useState<string>("transparent");
   const [textColor, setTextColor] = useState<string>("text-slate-800");
-  const [visible, setVisible] = useState<boolean>(true);
+  const [, setVisible] = useState<boolean>(true);
 
   //check if user is logged in
   const { token } = useAuth();
@@ -30,17 +30,6 @@ export default function Navbar() {
   const { cartItems } = useCart();
 
   const pathname = usePathname();
-
-  useEffect(() => {
-    if (
-      pathname !== "/" &&
-      pathname !== "/menu" &&
-      !pathname.includes("/menu/")
-    ) {
-      setBgColor("bg-slate-600");
-      setTextColor("text-orange-50");
-    }
-  }, [pathname]);
 
   useEffect(() => {
     const changeColorOnScroll = () => {
@@ -79,16 +68,16 @@ export default function Navbar() {
           </h1>
         </Link>
         <ul className='hidden sm:flex'>
-          {navItems.map((item) => (
+          {navItems.map(({ name, path }) => (
             <li
-              key={item.name}
+              key={name}
               className={
-                pathname === item.path
+                pathname === path
                   ? "px-5 text-sm underline underline-offset-8 decoration-2 decoration-slate-800"
                   : "px-5 text-sm hover:underline decoration-orange-600 decoration-2 underline-offset-8"
               }
             >
-              <Link href={item.path}>{item.name}</Link>
+              <Link href={path}>{name}</Link>
             </li>
           ))}
 
@@ -146,16 +135,16 @@ export default function Navbar() {
           }
         >
           <ul>
-            {navItems.map((item) => (
+            {navItems.map(({ name, path }) => (
               <li
-                key={item.name}
+                key={name}
                 className={
-                  pathname === item.path
+                  pathname === path
                     ? "p-4 text-2xl underline decoration-slate-600"
                     : "p-4 text-2xl "
                 }
               >
-                <Link href={item.path}>{item.name}</Link>
+                <Link href={path}>{name}</Link>
               </li>
             ))}
             <li
