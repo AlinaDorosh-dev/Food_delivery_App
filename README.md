@@ -4,12 +4,12 @@
 
 ## **Description**
 
-This is a food delivery web-app designed as a personal project to enhance my practical skills in [GraphQL](https://graphql.org/) API development  with [Apollo Server](https://www.apollographql.com/) and [MongoDB](https://www.mongodb.com/).
+This is a food delivery web-app designed as a personal project to enhance my practical skills in [NextJS](https://nextjs.org/), [GraphQL](https://graphql.org/) API development  with [Apollo Server](https://www.apollographql.com/) and [MongoDB](https://www.mongodb.com/).
 
 The frontend of the app is developed using
 [NextJS](https://nextjs.org/) version 13.4,
 [Typescript](https://www.typescriptlang.org/),
-[Tailwind CSS](https://tailwindcss.com/) for styling, [Framer motion](https://www.framer.com/motion/) for animations and Apollo Client for efficient data fetching using [GraphQL](https://graphql.org/)and [Formik](https://formik.org/) for streamlined form management.
+[Tailwind CSS](https://tailwindcss.com/) for styling, [Framer motion](https://www.framer.com/motion/) for animations and Apollo Client for efficient data fetching using [GraphQL](https://graphql.org/) and [Formik](https://formik.org/) for streamlined form management.
 
 ### **Key Features:**
 
@@ -58,8 +58,12 @@ npm install
 ```
 create `.env` file with following environment variables: 
 ```bash
-DB_URL=[your mongodb string (ex.mongodb://localhost:27017/FOODAPP or scrting connecting to your MongoDB Atlas cluster)]
+DB_URL=[your mongodb string (mongodb://localhost:27017/FOOD_APP_DATABASE or string connecting to your MongoDB Atlas cluster)]
 SECRET=[your token secret (can be generated using node crypto module)]
+
+Example:
+DB_URL=mongodb://localhost:27017/[YOUR_DATABASE_NAME]
+SECRET=[YOUR_SECRET]
 ```
 
 :pizza: You can find mocked *menuitems* collection inside the folder `mocked_menu` in JSON format
